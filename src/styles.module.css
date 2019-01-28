@@ -195,7 +195,7 @@ code {
 }
 
 .logo {
-  background-image: url('../images/SwarmCity-Sprite-normal.png');
+  background-image: url('./images/SwarmCity-Sprite-normal.png');
   background-repeat: no-repeat;
   background-size: 324px 324px;
   width: 108px;

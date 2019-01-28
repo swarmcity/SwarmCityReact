@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles.module.css";
+import styles from "../../styles.module.css";
 import UserAvatar from 'react-user-avatar'
 
 export default class ItemDetail extends React.Component {

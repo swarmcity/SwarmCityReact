@@ -7,7 +7,7 @@ import IpfsApi from 'ipfs-api';
 import './contractsData.js';
 import './contractAbis.js';
 import Moment from 'moment';
-import ItemDetail from './components/Item-detail.js';
+import ItemDetail from './views/item-detail/ItemDetail.js';
 
 var Buffer = require('safe-buffer').Buffer
 const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
@@ -25,7 +25,6 @@ class App extends Component {
   componentWillMount() {
     window.renderComplete = false;
     console.log('component mounted')
-    
     //const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
     console.log("Redux-sagas is using ipfs at https://ipfs.swarm.city:443");
     //ipfs.cat()
@@ -81,7 +80,7 @@ class App extends Component {
       amount={this.state.itemValue}>
       </ItemDetail>
       </div>
-      <Route path="/:hashtag/:item" component={Child}/>
+      <Route path="/item/:hashtag/:item" component={Child}/>
       </div>
       </Router>
       );
