@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  height: 80vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #EFD96F;
+}
+
+.logo {
+  margin-top: 100px;
+  background-image: url('./images/SwarmCity-Sprite-doublesize.png');
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 108px;
+  height: 50px;
+  background-position: -108px -108px;
+}
+
+.logotext {
+  margin-bottom: 20px;
+  font-weight: 800;
+  font-family: Montserrat, sans-serif;
+  font-size: 35px;
+  margin-top: -3px;
+}
+
+.welcometo {
+  composes: mainTitle1 from './styles.module.css';
+  margin-top: 20px;
+  font-weight: 100;
+  line-height: 24px;
+  font-size: 22px;
+}
+
+.language {
+  height: 50px;
+}
+
+.button {
+    width: 75vw;
+    min-width: 200px;
+    max-width: 300px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 30px 42px;
+    border-radius: 2px;
+    cursor: pointer;
+    max-height: 82px;
+    background-color: rgba(250, 250, 250, 0.09);
+    margin-top: 30px;
+}
+
+.status {
+  composes: smallLight from './styles.module.css';
+  width: 75vw;
+  min-width: 200px;
+  max-width: 300px;
+  margin-top: 15px;
+  opacity: 0.7;
+}
+
+

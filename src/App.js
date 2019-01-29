@@ -7,7 +7,9 @@ import IpfsApi from 'ipfs-api';
 import './contractsData.js';
 import './contractAbis.js';
 import Moment from 'moment';
-import ItemDetail from './views/item-detail/ItemDetail.js';
+import Welcome from './views/welcome/Welcome.js';
+import ItemDetailRouter from './views/item-detail/ItemDetailRouter.js';
+import styles from "./styles.module.css";
 
 var Buffer = require('safe-buffer').Buffer
 const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
@@ -46,17 +48,17 @@ class App extends Component {
     console.log('component m ounted for real')
     //this.getHashtag().bind(this)
     try {
-      getHashtagAsync().then(res => {
-        this.setState({ hashtagName: res.hashtagName });
-        this.setState({ seekerName: res.seeker });
-        this.setState({ hashtagAvatarData: res.seekerAvatar });
-        this.setState({ description: res.description });
-        this.setState({ itemValue: res.itemValue });
-        this.setState({ seekerRep: res.seekerRep });
-        var readibletime = Moment(res.timestamp*1000).format('DD MMM YYYY - HH:mm');
-        this.setState({ timestamp: readibletime });
-        window.renderComplete = true;
-      })
+      // getHashtagAsync().then(res => {
+      //   this.setState({ hashtagName: res.hashtagName });
+      //   this.setState({ seekerName: res.seeker });
+      //   this.setState({ hashtagAvatarData: res.seekerAvatar });
+      //   this.setState({ description: res.description });
+      //   this.setState({ itemValue: res.itemValue });
+      //   this.setState({ seekerRep: res.seekerRep });
+      //   var readibletime = Moment(res.timestamp*1000).format('DD MMM YYYY - HH:mm');
+      //   this.setState({ timestamp: readibletime });
+      //   window.renderComplete = true;
+      // })
     } catch(e) {
       console.log(e)
     }
@@ -66,21 +68,10 @@ class App extends Component {
     return (
       <Router>
       <div>
-      <div className="App">
-      <div className="header">
-      <div className="hashtagName">#{this.state.hashtagName}</div>
-      <div className="logo"></div>
-      </div> 
-      <ItemDetail 
-      description={this.state.description}
-      timestamp={this.state.timestamp}
-      seekername={this.state.seekerName}
-      seekerrep={this.state.seekerRep}
-      avatar={this.state.hashtagAvatarData}
-      amount={this.state.itemValue}>
-      </ItemDetail>
-      </div>
-      <Route path="/item/:hashtag/:item" component={Child}/>
+        <div className={styles.App}>
+          <Route path="/" component={Welcome}/>
+          <Route path="/item-detail/:hashtag/:item" component={ItemDetailRouter}/>
+        </div>
       </div>
       </Router>
       );
