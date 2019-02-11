@@ -730,7 +730,7 @@ code {
 .App {
   width:  100vw;
   margin: 0;
-  border-bottom: 5px dotted #ACACAC;
+  padding-bottom: 50px;
 }
 
 .hashtagName {
@@ -784,7 +784,7 @@ code {
 }
 
 .logo {
-  background-image: url('./images/SwarmCity-Sprite-normal.png');
+  background-image: url('./images/SwarmCity-Sprite-doublesize.png');
   background-repeat: no-repeat;
   background-size: 324px 324px;
   width: 108px;

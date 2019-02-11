@@ -34,7 +34,7 @@ class App extends Component {
     //const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
     console.log("Redux-sagas is using ipfs at https://ipfs.swarm.city:443");
     //ipfs.cat()
-    let web3DN = new Web3('wss://kovan.swarm.city')
+    let web3DN = new Web3('wss://proxy.swarm.city/kovan')
     window.web3 = web3DN
     this.setState({ hashtagName: 'unknown', hashtagMaintainer: 'unknown', hashtagAvatar: 'unknown' });
     web3DN.eth.getBlockNumber()
