@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../../styles.module.css";
 import hashtagstyles from "../../hashtag.module.css";
 import MyInfo from "../../components/my-info.js";
-import HashtagInfo from "../../components/hashtag-info.js";
 import ScIcon from "../../components/sc-icon.js";
 import { NavLink } from "react-router-dom";
 

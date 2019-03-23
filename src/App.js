@@ -7,10 +7,10 @@ import IpfsApi from "ipfs-api";
 import "./contractsData.js";
 import "./contractAbis.js";
 import Moment from "moment";
-import Welcome from "./views/welcome/welcome.js";
-import ItemDetailRouter from "./views/item-detail/itemDetailRouter.js";
-import HashtagListRouter from "./views/hashtag-list/hashtagListRouter.js";
-import HashtagRouter from "./views/hashtag/hashtagRouter.js";
+import Welcome from "./pages/welcome/welcome.js";
+import ItemDetailRouter from "./pages/item-detail/itemDetailRouter.js";
+import HashtagListRouter from "./pages/hashtag-list/hashtagListRouter.js";
+import HashtagRouter from "./pages/hashtag/hashtagRouter.js";
 
 import styles from "./styles.module.css";
 

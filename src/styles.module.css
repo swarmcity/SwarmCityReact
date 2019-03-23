@@ -166,8 +166,8 @@ code {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 30px;
-  margin-bottom: 40px;
+  margin-top: -10px;
+  margin-bottom: 25px;
 }
 
 .user {
@@ -179,11 +179,9 @@ code {
 }
 
 .username {
-  margin-left: 15px;
+  margin-left: 10px;
   color: #24b1ff;
-  font-weight: 800;
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
+  composes: smallBold;
 }
 
 .smallamount {
@@ -230,7 +228,6 @@ code {
 
 .header {
   composes: backgroundImg;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -260,44 +257,6 @@ code {
   box-sizing: border-box;
   margin: 0px 10px 4px 10px;
   min-height: 121px;
-}
-
-.timestamp {
-  color: #acacac;
-  font-weight: 200;
-  margin: -15px 30px 0 30px;
-  font-family: Montserrat, sans-serif;
-  font-size: 16px;
-}
-
-.smalltimestamp {
-  color: #acacac;
-  margin: -25px 30px 0 30px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 300;
-  font-size: 10px;
-  letter-spacing: 0;
-  line-height: 13px;
-}
-
-.description {
-  color: #333333;
-  font-weight: 200;
-  padding: 30px;
-  font-family: Montserrat, sans-serif;
-  font-size: 22px;
-  line-height: 18px;
-}
-
-.smalldescription {
-  color: #333333;
-  font-weight: 200;
-  padding: 30px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 200;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 19px;
 }
 
 .topcontainer {

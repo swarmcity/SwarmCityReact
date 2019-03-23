@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../../styles.module.css";
 import MyInfo from "../../components/my-info.js";
-import HashtagInfo from "../../components/hashtag-info.js";
 import ItemDetail from "./ItemDetail.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -20,7 +19,6 @@ export default class ItemDetailRouter extends React.Component {
     return (
       <div className="container">
         <MyInfo />
-        <HashtagInfo />
         <ItemDetail item={item} />
         {/* here the replies */}
       </div>
