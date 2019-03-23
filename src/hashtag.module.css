@@ -1,4 +1,5 @@
 .container {
+  composes: backgroundImg from './styles.module.css';
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -12,10 +13,12 @@
   align-items: left; 
 }
 
-.hashtaglistname {
+.hashtagname {
   composes: mainTitle2 from './styles.module.css';
+  composes: backgroundImg from './styles.module.css';
   line-height: 18px;
-  color: black;
+  color: #333333;
+  margin: 5px 5px 29px 29px;
 }
 
 .completed {

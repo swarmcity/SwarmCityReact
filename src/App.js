@@ -1,53 +1,59 @@
-import React, { Component } from 'react';
-import './App.css';
-import Web3 from 'web3';
-import CID from 'cids';
+import React, { Component } from "react";
+import "./App.css";
+import Web3 from "web3";
+import CID from "cids";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import IpfsApi from 'ipfs-api';
-import './contractsData.js';
-import './contractAbis.js';
-import Moment from 'moment';
-import Welcome from './views/welcome/welcome.js';
-import ItemDetailRouter from './views/item-detail/itemDetailRouter.js';
-import HashtagListRouter from './views/hashtag-list/hashtagListRouter.js';
+import IpfsApi from "ipfs-api";
+import "./contractsData.js";
+import "./contractAbis.js";
+import Moment from "moment";
+import Welcome from "./views/welcome/welcome.js";
+import ItemDetailRouter from "./views/item-detail/itemDetailRouter.js";
+import HashtagListRouter from "./views/hashtag-list/hashtagListRouter.js";
+import HashtagRouter from "./views/hashtag/hashtagRouter.js";
 
 import styles from "./styles.module.css";
 
-var Buffer = require('safe-buffer').Buffer
+var Buffer = require("safe-buffer").Buffer;
 const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      res: '',
-      hashtagName: '',
-      hashtagMaintainer: '',
-      hashtagAvatar: ''
+      res: "",
+      hashtagName: "",
+      hashtagMaintainer: "",
+      hashtagAvatar: ""
     };
   }
 
   componentWillMount() {
     window.renderComplete = false;
-    console.log('component mounted')
+    console.log("component mounted");
     //const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
     console.log("Redux-sagas is using ipfs at https://ipfs.swarm.city:443");
     //ipfs.cat()
-    let web3DN = new Web3('wss://proxy.swarm.city/kovan')
-    window.web3 = web3DN
-    this.setState({ hashtagName: 'unknown', seekerName: 'unknown', hashtagAvatar: 'unknown' });
-    web3DN.eth.getBlockNumber()
+    let web3DN = new Web3("wss://proxy.swarm.city/kovan");
+    window.web3 = web3DN;
+    this.setState({
+      hashtagName: "unknown",
+      seekerName: "unknown",
+      hashtagAvatar: "unknown"
+    });
+    web3DN.eth
+      .getBlockNumber()
       .then(block => {
         this.setState({ res: block });
       })
       .catch(e => {
         this.setState({ res: e.message });
-      })
+      });
   }
 
   componentDidMount() {
     //var $this = $(ReactDOM.findDOMNode(this));
     // set el height and width etc.
-    console.log('component m ounted for real')
+    console.log("component m ounted for real");
     //this.getHashtag().bind(this)
     try {
       // getHashtagAsync().then(res => {
@@ -62,7 +68,7 @@ class App extends Component {
       //   window.renderComplete = true;
       // })
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
 
@@ -73,8 +79,11 @@ class App extends Component {
           <div className={styles.App}>
             <Route exact path="/" component={Welcome} />
             <Route path="/hashtag-list" component={HashtagListRouter} />
-            <Route path="/item-detail/:hashtag/:item" component={ItemDetailRouter} />
-
+            <Route path="/hashtag/:hashtagaddress" component={HashtagRouter} />
+            <Route
+              path="/item-detail/:hashtag/:item"
+              component={ItemDetailRouter}
+            />
           </div>
         </div>
       </Router>
@@ -85,13 +94,11 @@ class App extends Component {
 function Child({ match }) {
   window.hashtag = match.params.hashtag;
   window.itemhash = match.params.item;
-  return (
-    true
-  );
+  return true;
 }
 
 function handleChange(e) {
-  console.log('location changed', e)
+  console.log("location changed", e);
 }
 
 function getHashtag() {
@@ -103,11 +110,13 @@ function getHashtag() {
       this.setState({ description: res.description });
       this.setState({ itemValue: res.itemValue });
       this.setState({ seekerRep: res.seekerRep });
-      var readibletime = Moment(res.timestamp * 1000).format('DD MMM YYYY - HH:mm');
+      var readibletime = Moment(res.timestamp * 1000).format(
+        "DD MMM YYYY - HH:mm"
+      );
       this.setState({ timestamp: readibletime });
-    })
+    });
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 }
 
@@ -117,26 +126,23 @@ async function getBlockTime(blockNumber) {
     if (block && block.timestamp) {
       return parseInt(block.timestamp);
     } else {
-      console.error('Error fetching block ' + blockNumber + ' :', block)
-      return 'error';
+      console.error("Error fetching block " + blockNumber + " :", block);
+      return "error";
     }
   } catch (e) {
-    console.error('Error fetching timestamp for block ' + blockNumber, e)
+    console.error("Error fetching timestamp for block " + blockNumber, e);
   }
 }
 
 async function getHashtagAsync(hashtag) {
-
   const hashtagContract = await new window.web3.eth.Contract(
     window.contractAbis.simpleDeal,
     window.hashtag
   );
 
-  let itemHash = window.itemhash
-
-  //console.log(hashtagContract, window.hashtag, itemHash)
-  var result = await hashtagContract.methods.hashtagName().call()
-  var result2 = await getItemData(hashtagContract, itemHash)
+  let itemHash = window.itemhash;
+  var result = await hashtagContract.methods.hashtagName().call();
+  var result2 = await getItemData(hashtagContract, itemHash);
   var res = {
     hashtagName: result,
     seeker: result2.ipfsMeta.username,
@@ -145,45 +151,53 @@ async function getHashtagAsync(hashtag) {
     itemValue: result2.itemValue / 1e18,
     seekerRep: result2.seekerRep,
     timestamp: result2.timestamp
-  }
-  return res
+  };
+  return res;
   //await hashtagContract.methods.hashtagName.call()
 }
 
 /**
-* Gets hashtag from the blockchain
-*/
+ * Gets hashtag from the blockchain
+ */
 async function getItemData(hashtagContract, itemHash) {
   try {
     let itemData = {};
     await Promise.all([
-      hashtagContract.methods.readItemData(itemHash).call().then(res => {
-        itemData.status = res.status
-        itemData.providerAddress = res.providerAddress
-        itemData.providerRep = res.providerRep
-        itemData.numberOfReplies = res.numberOfReplies
-      }).catch(e => {
-        console.error(`Error calling readItemData(${itemHash}): ${e}`)
-      }),
-      hashtagContract.methods.readItemState(itemHash).call().then(res => {
-        itemData.itemValue = res._itemValue
-        itemData.seekerRep = res._seekerRep
-        itemData.seekerAddress = res._seekerAddress
-        itemData.itemMetadataHash = res._itemMetadataHash
-        itemData.creationBlock = res._creationBlock
-      }).catch(e => {
-        console.error(`Error calling readItemState(${itemHash}): ${e}`)
-      })
-    ])
-    var ipfsMeta = await ipfsCat(itemData.itemMetadataHash)
+      hashtagContract.methods
+        .readItemData(itemHash)
+        .call()
+        .then(res => {
+          itemData.status = res.status;
+          itemData.providerAddress = res.providerAddress;
+          itemData.providerRep = res.providerRep;
+          itemData.numberOfReplies = res.numberOfReplies;
+        })
+        .catch(e => {
+          console.error(`Error calling readItemData(${itemHash}): ${e}`);
+        }),
+      hashtagContract.methods
+        .readItemState(itemHash)
+        .call()
+        .then(res => {
+          itemData.itemValue = res._itemValue;
+          itemData.seekerRep = res._seekerRep;
+          itemData.seekerAddress = res._seekerAddress;
+          itemData.itemMetadataHash = res._itemMetadataHash;
+          itemData.creationBlock = res._creationBlock;
+        })
+        .catch(e => {
+          console.error(`Error calling readItemState(${itemHash}): ${e}`);
+        })
+    ]);
+    var ipfsMeta = await ipfsCat(itemData.itemMetadataHash);
     //console.log(JSON.parse(ipfsMeta))
-    itemData.ipfsMeta = JSON.parse(ipfsMeta)
-    itemData.ipfsMeta.avatarData = await ipfsCat(itemData.ipfsMeta.avatarHash)
-    itemData.timestamp = await getBlockTime(itemData.creationBlock)
-    console.log(itemData)
-    return itemData
+    itemData.ipfsMeta = JSON.parse(ipfsMeta);
+    itemData.ipfsMeta.avatarData = await ipfsCat(itemData.ipfsMeta.avatarHash);
+    itemData.timestamp = await getBlockTime(itemData.creationBlock);
+    console.log(itemData);
+    return itemData;
   } catch (e) {
-    console.error('Error on getItemData from ' + itemHash, e)
+    console.error("Error on getItemData from " + itemHash, e);
   }
 }
 
@@ -221,9 +235,7 @@ function hashToBytes32(hash) {
   const hashId = cid.multihash.slice(0, 2).toString("hex");
   const bytes32 = cid.multihash.slice(2).toString("hex");
   if (hashId !== "1220" || bytes32.length / 2 !== 32) {
-    console.error(
-      `IPFS hash is not SHA-256 32 bytes: ${hashId} !== "1220"`
-    );
+    console.error(`IPFS hash is not SHA-256 32 bytes: ${hashId} !== "1220"`);
   } else {
     return "0x" + bytes32;
   }
@@ -251,25 +263,23 @@ function ipfsAdd(data) {
   if (!Buffer.isBuffer(data)) {
     data = Buffer.from(data, "utf8");
   }
-  return ipfs
-    .add(data, { hashAlg: "sha2-256", "cid-version": 0 })
-    .then(res => {
-      const hash = res[0].hash;
-      if (!hash.startsWith("Qm"))
-        console.warn(
-          "WARNING TO SWARM.CITY DEVS: ipfs cids are not being stored as v0"
-        );
-      return {
-        hash,
-        bytes32: hashToBytes32(hash)
-      };
-    });
+  return ipfs.add(data, { hashAlg: "sha2-256", "cid-version": 0 }).then(res => {
+    const hash = res[0].hash;
+    if (!hash.startsWith("Qm"))
+      console.warn(
+        "WARNING TO SWARM.CITY DEVS: ipfs cids are not being stored as v0"
+      );
+    return {
+      hash,
+      bytes32: hashToBytes32(hash)
+    };
+  });
 }
 
 function isIpfsHash(hash) {
   try {
     const cid = new CID(hash);
-    console.log(cid)
+    console.log(cid);
     return true;
   } catch (e) {
     return false;
@@ -298,6 +308,5 @@ window.ipfsUtils = {
   bytes32ToHash,
   hashToBytes32
 };
-
 
 export default App;
