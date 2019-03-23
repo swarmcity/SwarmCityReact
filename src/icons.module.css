@@ -1,0 +1,24 @@
+.icon {
+  width: 48px;
+  height: 48px;
+  background-color: red;
+}
+
+.exit {
+  background-image: url('./images/SwarmCity-Sprite-doublesize.png');
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -216px -198px;
+  width: 36px;
+  height: 36px;
+  margin: 36px;
+}
+
+.logout {
+  background-image: url('./images/SwarmCity-Sprite-doublesize.png');
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -216px -198px;
+  width: 36px;
+  height: 36px;
+}
