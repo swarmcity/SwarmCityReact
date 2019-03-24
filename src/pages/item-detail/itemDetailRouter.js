@@ -3,6 +3,9 @@ import styles from "../../styles.module.css";
 import MyInfo from "../../components/my-info.js";
 import ItemDetail from "./ItemDetail.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import ScIcon from "../../components/sc-icon.js";
+import hashtagstyles from "../../hashtag.module.css";
 
 const item = {
   description: "Another SWT giveaway to first NEW USER to see this!!",
@@ -19,6 +22,7 @@ export default class ItemDetailRouter extends React.Component {
     return (
       <div className="container">
         <MyInfo />
+        <div className={hashtagstyles.hashtagname}>#GetSWT</div>
         <ItemDetail item={item} />
         {/* here the replies */}
       </div>

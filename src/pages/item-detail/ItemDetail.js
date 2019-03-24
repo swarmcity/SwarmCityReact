@@ -36,7 +36,7 @@ export default class ItemDetail extends React.Component {
             </div>
           </div>
           <div className={styles.valuebox}>
-            <div className={styles.currency}>SWT</div>
+            <div className={styles.currency}>xDAI</div>
             <div className={styles.value}>{this.props.item.amount}</div>
           </div>
         </div>
