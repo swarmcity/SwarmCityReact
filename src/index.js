@@ -1,14 +1,22 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import SwarmCity from "./swarm-city";
+import { render } from "react-dom";
 import { Provider } from "react-redux";
+// Not needed, history.js specifies the use of Hash.
+import { HashRouter as Router } from "react-router-dom";
+// Redux imports
+import history from "./history";
 import store from "./store";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
+// Styles
+import "./index.css";
+
+render(
   <Provider store={store}>
-    <SwarmCity className="swarm-city" />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

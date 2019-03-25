@@ -1,3 +1,6 @@
+import { combineReducers } from "redux";
+import services from "./services";
+
 const initialState = {
   hashtags: [
     { name: "GetSWT", completed: 4 },
@@ -7,7 +10,7 @@ const initialState = {
   ]
 };
 
-const rootReducer = (state = initialState, action) => {
+const globalReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_HASHTAG":
       return {
@@ -20,4 +23,12 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+const servicesReducers = {};
+Object.values(services).forEach(({ mountPoint, reducer }) => {
+  servicesReducers[mountPoint] = reducer;
+});
+
+export default combineReducers({
+  ...servicesReducers,
+  globalReducer
+});

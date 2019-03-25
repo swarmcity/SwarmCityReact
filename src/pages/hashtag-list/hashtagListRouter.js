@@ -5,9 +5,14 @@ import MyInfo from "../../components/my-info.js";
 import ScIcon from "../../components/sc-icon.js";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
+// Selectors
+import { getHashtagList } from "../../services/hashtagList/selectors";
 
 import HashtagListItem from "./hashtagListItem.js";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 class HashtagListRouter extends React.Component {
   render() {
     return (
@@ -28,6 +33,7 @@ class HashtagListRouter extends React.Component {
         <div className={hashtaglist.container}>
           {this.props.hashtags.map(hashtag => (
             <HashtagListItem
+              key={hashtag.address}
               hashtagname={hashtag.name}
               completed={hashtag.completed}
               hashtagaddress={hashtag.address}
@@ -39,8 +45,12 @@ class HashtagListRouter extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  hashtags: state.hashtags
+HashtagListRouter.propTypes = {
+  hashtag: PropTypes.array.isRequired
+};
+
+const mapStateToProps = createStructuredSelector({
+  hashtags: getHashtagList
 });
 
 const mapDispatchToProps = dispatch => ({

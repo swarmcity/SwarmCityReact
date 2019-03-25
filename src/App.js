@@ -16,7 +16,8 @@ import styles from "./styles.module.css";
 
 var Buffer = require("safe-buffer").Buffer;
 const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
-class SwarmCity extends Component {
+
+export default class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -308,5 +309,3 @@ window.ipfsUtils = {
   bytes32ToHash,
   hashToBytes32
 };
-
-export default SwarmCity;
