@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./swarm-city.css";
 import Web3 from "web3";
 import CID from "cids";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import IpfsApi from "ipfs-api";
-import "./contractsData.js";
-import "./contractAbis.js";
+import "./contracts/contractsData.js";
+import "./contracts/contractAbis.js";
 import Moment from "moment";
 import Welcome from "./pages/welcome/welcome.js";
 import ItemDetailRouter from "./pages/item-detail/itemDetailRouter.js";
@@ -16,7 +16,7 @@ import styles from "./styles.module.css";
 
 var Buffer = require("safe-buffer").Buffer;
 const ipfs = IpfsApi("ipfs.swarm.city", "443", { protocol: "https" });
-class App extends Component {
+class SwarmCity extends Component {
   constructor() {
     super();
     this.state = {
@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div className={styles.App}>
+          <div className={styles.SwarmCity}>
             <Route exact path="/" component={Welcome} />
             <Route path="/hashtag-list" component={HashtagListRouter} />
             <Route path="/hashtag/:hashtagaddress" component={HashtagRouter} />
@@ -309,4 +309,4 @@ window.ipfsUtils = {
   hashToBytes32
 };
 
-export default App;
+export default SwarmCity;

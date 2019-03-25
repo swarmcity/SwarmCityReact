@@ -52,16 +52,23 @@ export default class HashtagRouter extends React.Component {
       }
     ];
     return (
-      <div className={hashtagstyles.smallcontainer}>
-        <div className={styles.topcontainer}>
-          <MyInfo />
-          <NavLink to="/">
-            <ScIcon className={styles.exiticon} icon="exit" />
-          </NavLink>
+      <div className={hashtagstyles.container}>
+        <div className={styles.iconbuttonbig}>
+          <div className={styles.plusblueicon} />
         </div>
-        <div className={hashtagstyles.hashtagname}>#GetSWT</div>
-        <div className={styles.filterbox}>filter requests</div>
-        <div className={hashtagstyles.container}>
+
+        <div className={hashtagstyles.topcontainer}>
+          <div className={hashtagstyles.toprow}>
+            <MyInfo />
+            <NavLink to="/hashtag-list">
+              <div className={styles.exiticon} />
+            </NavLink>
+          </div>
+          <div className={hashtagstyles.hashtagname}>#GetSWT</div>
+          <div className={hashtagstyles.filterbox}>filter requests</div>
+        </div>
+
+        <div className={hashtagstyles.hashtagitems}>
           {hashtagitems.map(item => (
             <HashtagItem display="small" item={item} />
           ))}
