@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles.module.css";
 import MyInfo from "../../components/my-info.js";
 import ItemDetail from "./ItemDetail.js";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import ScIcon from "../../components/sc-icon.js";
 import hashtagstyles from "../../hashtag.module.css";

@@ -11,7 +11,7 @@ import Welcome from "./pages/welcome/welcome.js";
 import ItemDetailRouter from "./pages/item-detail/itemDetailRouter.js";
 import HashtagListRouter from "./pages/hashtag-list/hashtagListRouter.js";
 import HashtagRouter from "./pages/hashtag/hashtagRouter.js";
-
+import CreateAccount from "./pages/create-account/createAccountRoot.js";
 import styles from "./styles.module.css";
 
 var Buffer = require("safe-buffer").Buffer;
@@ -75,19 +75,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <div className={styles.SwarmCity}>
-            <Route exact path="/" component={Welcome} />
-            <Route path="/hashtag-list" component={HashtagListRouter} />
-            <Route path="/hashtag/:hashtagaddress" component={HashtagRouter} />
-            <Route
-              path="/item-detail/:hashtag/:item"
-              component={ItemDetailRouter}
-            />
-          </div>
-        </div>
-      </Router>
+      <div className={styles.SwarmCity}>
+        <Route exact path="/" component={Welcome} />
+        <Route path="/create-account" component={CreateAccount} />
+        <Route path="/hashtag-list" component={HashtagListRouter} />
+        <Route path="/hashtag/:hashtagAddress" component={HashtagRouter} />
+        <Route
+          path="/item-detail/:hashtag/:item"
+          component={ItemDetailRouter}
+        />
+      </div>
     );
   }
 }

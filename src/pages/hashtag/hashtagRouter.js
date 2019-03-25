@@ -1,14 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import styles from "../../styles.module.css";
 import hashtagstyles from "../../hashtag.module.css";
 import MyInfo from "../../components/my-info.js";
 import ScIcon from "../../components/sc-icon.js";
 import { NavLink } from "react-router-dom";
+// Selectors
+import { getItemsByHashtag } from "../../services/hashtagList/selectors";
 
 import HashtagItem from "../item-detail/ItemDetail.js";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-export default class HashtagRouter extends React.Component {
+import { Route, Link } from "react-router-dom";
+
+class HashtagRouter extends React.Component {
   render() {
     const hashtagitems = [
       {
@@ -29,7 +34,7 @@ export default class HashtagRouter extends React.Component {
         seekerrep: 10,
         completed: 2,
         hashtagAddress: "0xjacques",
-        itemId: "0xabc"
+        itemId: "0xabc1"
       },
       {
         description: "Another SWT giveaway to first NEW USER to see this!!",
@@ -39,16 +44,7 @@ export default class HashtagRouter extends React.Component {
         seekerrep: 10,
         completed: 2,
         hashtagAddress: "0xjacques",
-        itemId: "0xabc"
-      },
-      {
-        name: "SC - Support",
-        description: "Testdeal",
-        timestamp: "12 Mar 1979 - 12: 34",
-        seekername: "Danny",
-        amount: 30,
-        seekerrep: 10,
-        completed: 1
+        itemId: "0xabc2"
       }
     ];
     return (
@@ -70,10 +66,16 @@ export default class HashtagRouter extends React.Component {
 
         <div className={hashtagstyles.hashtagitems}>
           {hashtagitems.map(item => (
-            <HashtagItem display="small" item={item} />
+            <HashtagItem key={item.itemId} display="small" item={item} />
           ))}
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  hashtags: getItemsByHashtag
+});
+
+export default connect(mapStateToProps)(HashtagRouter);

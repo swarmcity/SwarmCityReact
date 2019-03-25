@@ -7,10 +7,10 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 // Selectors
-import { getHashtagList } from "../../services/hashtagList/selectors";
+import { getHashtagListOnlyShown } from "../../services/hashtagList/selectors";
 
 import HashtagListItem from "./hashtagListItem.js";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 class HashtagListRouter extends React.Component {
@@ -50,7 +50,7 @@ HashtagListRouter.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  hashtags: getHashtagList
+  hashtags: getHashtagListOnlyShown
 });
 
 const mapDispatchToProps = dispatch => ({

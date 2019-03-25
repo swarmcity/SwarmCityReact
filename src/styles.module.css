@@ -356,6 +356,15 @@ code {
   height: 36px;
 }
 
+.closeicon {
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -144px -234px;
+  width: 36px;
+  height: 36px;
+}
+
 .backicon {
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
   background-repeat: no-repeat;
