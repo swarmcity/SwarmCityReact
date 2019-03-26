@@ -1,8 +1,6 @@
 import { mountPoint } from "./";
 import { createSelector } from "reselect";
 
-// Service > hashtagList
-
 export const getHashtagList = createSelector(
   state => state[mountPoint],
   hashtagList => hashtagList
@@ -16,7 +14,6 @@ export const getHashtagListOnlyShown = createSelector(
 export const getItemsByHashtag = createSelector(
   (state, ownProps) => {
     const hashtagAddress = ((ownProps.match || {}).params || {}).hashtagAddress;
-    console.log({ hashtagAddress });
   },
   x => x
 );

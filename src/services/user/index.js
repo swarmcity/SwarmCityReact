@@ -1,9 +1,9 @@
 import saga from "./sagas";
 import reducer from "./reducer";
 
-// Service > hashtagList
+// Service > user
 
-export const mountPoint = "hashtagList";
+export const mountPoint = "user";
 
 export default {
   mountPoint,
