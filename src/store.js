@@ -13,5 +13,10 @@ const store = configureStore({
 
 export default store;
 
+// For dev purposes
+window.dispatch = (type, kwargs) => {
+  store.dispatch({ type, ...kwargs });
+};
+
 // Run the saga
 sagaMiddleware.run(rootSaga);
