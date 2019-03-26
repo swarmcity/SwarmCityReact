@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles.module.css";
 import welcome from "../../welcome.module.css";
 import { NavLink } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const Welcome = () => (
   <div className={welcome.container}>
@@ -26,5 +27,6 @@ const Welcome = () => (
     </div>
   </div>
 );
-
 export default Welcome;
+
+//export default Welcome;

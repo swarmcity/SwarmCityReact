@@ -329,6 +329,22 @@ code {
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
 }
 
+.iconbuttonbigcenter {
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+}
+
 .plusicon {
   width: 54px;
   height: 54px;
@@ -347,11 +363,29 @@ code {
   background-position: -162px -0px;
 }
 
+.nextblueicon {
+  width: 54px;
+  height: 54px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -216px -0px;
+}
+
 .exiticon {
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
   background-repeat: no-repeat;
   background-size: 324px 324px;
   background-position: -216px -198px;
+  width: 36px;
+  height: 36px;
+}
+
+.exitgrayicon {
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -216px -234px;
   width: 36px;
   height: 36px;
 }

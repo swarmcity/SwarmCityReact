@@ -22,6 +22,12 @@
   text-align: center;
 }
 
+.formtitle {
+  composes: mainTitle1 from "./styles.module.css";
+  color: #acacac;
+  text-align: center;
+}
+
 .subtitle {
   composes: smallLight from "./styles.module.css";
   color: white;
@@ -30,29 +36,82 @@
   line-height: 18px;
 }
 
-.button {
-  width: 75vw;
-  min-width: 200px;
-  max-width: 300px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 22px;
+.formcontainer {
+  composes: backgroundImg from "./styles.module.css";
+  display: flex;
+  flex-direction: column;
+  place-items: center flex-start;
+  justify-items: stretch;
+  padding: 137px 40px;
+}
+
+.placeholder {
+  background-color: inherit;
+  opacity: 1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./images/defaultavatar.png);
+  height: 90px;
+  width: 90px;
+  margin-top: 50px;
+}
+
+.uploadicon {
+  position: relative;
+  top: -25px;
+  left: 35px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  place-items: center center;
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  background-color: #24b1ff;
+  border-radius: 50%;
+  cursor: pointer;
   box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  box-sizing: border-box;
-  padding: 30px 42px;
-  border-radius: 2px;
-  cursor: pointer;
-  max-height: 82px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin-top: 20px;
 }
 
-.buttontext {
-  color: white;
+.arrowup {
+  width: 18px;
+  height: 18px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -306px -180px;
+}
+
+.usernameinputbox {
+  width: 205px;
+  border-bottom: 1px solid #333333;
+  display: flex;
+  flex-direction: column;
+  place-items: center center;
+}
+
+.usernameinput {
+  composes: bodyDefault from "./styles.module.css";
+  width: 205px;
+  color: #333333;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+input {
+  background-color: transparent;
+  border: 0px;
+}
+
+input:focus {
+  font-weight: bold;
+}
+
+.flexer {
+  margin: 10px;
 }

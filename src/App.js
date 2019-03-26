@@ -54,7 +54,7 @@ export default class App extends Component {
   componentDidMount() {
     //var $this = $(ReactDOM.findDOMNode(this));
     // set el height and width etc.
-    console.log("component m ounted for real");
+    console.log("component mounted for real");
     //this.getHashtag().bind(this)
     try {
       // getHashtagAsync().then(res => {
