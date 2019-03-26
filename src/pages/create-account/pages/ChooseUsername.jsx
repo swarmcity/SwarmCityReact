@@ -3,9 +3,9 @@ import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
 import ScIcon from "components/sc-icon.js";
 
-const ChooseUsername = ({ nextStage }) => (
+const ChooseUsername = ({ nextStage, exitStage }) => (
   <div className={createAccount.formcontainer}>
-    <div className={createAccount.closeButton}>
+    <div className={createAccount.closeButton} onClick={exitStage}>
       <div className={styles.exitgrayicon} />
     </div>
     <div className={createAccount.formtitle}>
