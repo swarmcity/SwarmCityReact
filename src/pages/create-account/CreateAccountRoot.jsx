@@ -5,11 +5,18 @@ import CreateOrRestore from "./pages/CreateOrRestore";
 import ChooseUsername from "./pages/ChooseUsername";
 import ChooseAvatar from "./pages/ChooseAvatar";
 import StopCreation from "./pages/StopCreation";
+import PasswordWarning from "./pages/PasswordWarning";
+import ChoosePassword from "./pages/ChoosePassword";
+import BackupWarning from "./pages/BackupWarning";
 
 const createOrRestoreId = "createOrRestoreId";
 const chooseAvatarId = "chooseAvatarId";
 const chooseUsernameId = "chooseUsernameId";
 const stopCreationId = "stopCreationId";
+const passwordWarningId = "passwordWarningId";
+const choosePasswordId = "choosePasswordId";
+const backupWarningId = "backupWarningId";
+const unlockAccountId = "unlockAccountId";
 
 function CreateAccountRoot() {
   const [stage, setStage] = useState(createOrRestoreId);
@@ -25,19 +32,37 @@ function CreateAccountRoot() {
     case chooseUsernameId:
       return (
         <ChooseUsername
-          nextStage={() => setStage(chooseAvatarId)}
+          avatarStage={() => setStage(chooseAvatarId)}
+          nextStage={() => setStage(passwordWarningId)}
           exitStage={() => setStage(stopCreationId)}
         />
       );
     case chooseAvatarId:
+      return <ChooseAvatar nextStage={() => setStage(chooseUsernameId)} />;
+    case stopCreationId:
+      return <StopCreation nextStage={() => setStage(stopCreationId)} />;
+    case passwordWarningId:
       return (
-        <ChooseAvatar
-          nextStage={() => setStage("next")}
+        <PasswordWarning
+          nextStage={() => setStage(choosePasswordId)}
           exitStage={() => setStage(stopCreationId)}
         />
       );
-    case stopCreationId:
-      return <StopCreation nextStage={() => setStage("chooseUsernameId")} />;
+    case choosePasswordId:
+      return (
+        <ChoosePassword
+          nextStage={() => setStage(backupWarningId)}
+          exitStage={() => setStage(stopCreationId)}
+        />
+      );
+    case backupWarningId:
+      return (
+        <BackupWarning
+          nextStage={() => setStage(backupWarningId)}
+          exitStage={() => setStage(stopCreationId)}
+          unlockStage={() => setStage(unlockAccountId)}
+        />
+      );
     default:
       return <h1>Ops</h1>;
   }

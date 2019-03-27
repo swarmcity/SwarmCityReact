@@ -378,6 +378,18 @@ code {
   height: 36px;
 }
 
+.alertblueicon {
+  background-position: -108px -54px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 54px;
+  height: 54px;
+  margin-bottom: -20px;
+  z-index: 1;
+  margin-top: 30px;
+}
+
 .backicon {
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
   background-repeat: no-repeat;

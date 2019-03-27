@@ -3,27 +3,35 @@ import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
 import ScIcon from "components/sc-icon.js";
 
-const ChooseUsername = ({ nextStage, exitStage, avatarStage }) => (
+const ChoosePassword = ({ nextStage, exitStage }) => (
   <div className={createAccount.formcontainer}>
     <div className={createAccount.closeButton} onClick={exitStage}>
       <div className={styles.exitgrayicon} />
     </div>
-    <div className={createAccount.formtitle}>
-      Choose an avatar and a username.
-    </div>
-    <div className={createAccount.placeholder} onClick={avatarStage} />
-    <div className={createAccount.uploadbtn} />
-    <div className={createAccount.uploadicon}>
-      <div className={createAccount.arrowup} />
-    </div>
+    <div className={createAccount.formtitle}>Choose a password.</div>
+    <div className={createAccount.passwordflex} />
+    <div className={createAccount.passwordflex} />
+
     <div className={createAccount.usernameinputbox}>
       <input
-        autofocus
+        type="password"
+        autoFocus
         className={createAccount.usernameinput}
-        placeholder="Username"
+        placeholder="Password?"
       />
     </div>
     <div className={createAccount.flexer} />
+    <div className={createAccount.flexer} />
+
+    <div className={createAccount.usernameinputbox}>
+      <input
+        type="password"
+        className={createAccount.usernameinput}
+        placeholder="Confirm password"
+      />
+    </div>
+    <div className={createAccount.passwordflex} />
+
     <div
       tabIndex="2"
       className={[styles.iconbuttonbig, createAccount.confirm].join(" ")}
@@ -34,4 +42,4 @@ const ChooseUsername = ({ nextStage, exitStage, avatarStage }) => (
   </div>
 );
 
-export default ChooseUsername;
+export default ChoosePassword;

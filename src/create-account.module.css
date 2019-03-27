@@ -23,6 +23,12 @@
   text-align: center;
 }
 
+.titleblue {
+  composes: mainTitle1 from "./styles.module.css";
+  color: #24b1ff;
+  text-align: center;
+}
+
 .formtitle {
   composes: mainTitle1 from "./styles.module.css";
   color: #acacac;
@@ -37,6 +43,31 @@
   line-height: 18px;
 }
 
+.username {
+  composes: bodyBold from "./styles.module.css";
+  color: #333333;
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  line-height: 14px;
+}
+
+.showkeystoggle {
+  composes: smallBold from "./styles.module.css";
+  color: #666666;
+  text-align: center;
+  margin: -10px 0px 0px 0px;
+  line-height: 14px;
+  border-bottom: 2px dotted #acacac;
+}
+
+.formsubtitle {
+  composes: smallLight from "./styles.module.css";
+  color: #333333;
+  text-align: center;
+  margin: 20px 0px 10px 0px;
+  line-height: 18px;
+}
+
 .formcontainer {
   composes: backgroundImg from "./styles.module.css";
   display: flex;
@@ -44,6 +75,18 @@
   place-items: center flex-start;
   justify-items: stretch;
   padding: 137px 40px;
+}
+
+.box {
+  composes: bodyBold from "./styles.module.css";
+  color: #333333;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 54px 35px 40px 35px;
+  background-color: white;
+  max-width: 450px;
+  margin-bottom: 8vh;
+  line-height: 20px;
 }
 
 .placeholder {
@@ -85,6 +128,33 @@
   color: white;
 }
 
+.buttongray {
+  width: 75vw;
+  min-width: 200px;
+  max-width: 300px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 22px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 30px 42px;
+  border-radius: 2px;
+  cursor: pointer;
+  max-height: 82px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 60px;
+}
+
+.buttontextblue {
+  color: #24b1ff;
+}
+
 .uploadicon {
   position: relative;
   top: -25px;
@@ -116,7 +186,7 @@
 }
 
 .usernameinputbox {
-  width: 205px;
+  width: 75vw;
   border-bottom: 1px solid #333333;
   display: flex;
   flex-direction: column;
@@ -129,6 +199,11 @@
   color: #333333;
   text-align: center;
   padding-bottom: 5px;
+}
+
+.passwordflex {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 input {

@@ -25,7 +25,7 @@ function setIpfsInstance(url) {
 
 function* testInitialSaga() {
   try {
-    const hashtagAddress = "0x47C6527c03f8c15eA3Ab529375d17B2b4C030297";
+    const hashtagAddress = "0x59327811AB97B9d56815b9934461d134c78Dd79A";
     yield call(setWeb3Instance, "http://127.0.0.1:7545");
     yield call(setIpfsInstance, "https://ipfs.infura.io");
     yield put(fetchHashtag({ hashtagAddress }));
