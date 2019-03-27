@@ -310,7 +310,7 @@ code {
   hyphens: auto;
 }
 
-.iconbuttonbig {
+/* .iconbuttonbig {
   position: fixed;
   bottom: 50px;
   right: 30px;
@@ -327,14 +327,13 @@ code {
   -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-}
+} */
 
-.iconbuttonbigcenter {
+.iconbuttonbig {
   z-index: 55;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -343,6 +342,7 @@ code {
   -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  background-color: white;
 }
 
 .plusicon {
@@ -406,6 +406,24 @@ code {
   background-position: -54px -162px;
   width: 36px;
   height: 36px;
+}
+
+.vmarkicon {
+  background-position: -0px -54px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 54px;
+  height: 54px;
+}
+
+.xmarkicon {
+  background-position: -54px -0px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 54px;
+  height: 54px;
 }
 
 .logout {

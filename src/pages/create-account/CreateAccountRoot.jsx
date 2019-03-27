@@ -12,7 +12,7 @@ const chooseUsernameId = "chooseUsernameId";
 const stopCreationId = "stopCreationId";
 
 function CreateAccountRoot() {
-  const [stage, setStage] = useState(createOrRestoreId);
+  const [stage, setStage] = useState(stopCreationId);
 
   switch (stage) {
     case createOrRestoreId:
@@ -37,7 +37,7 @@ function CreateAccountRoot() {
         />
       );
     case stopCreationId:
-      return <StopCreation nextStage={() => setStage("next")} />;
+      return <StopCreation nextStage={() => setStage("chooseUsernameId")} />;
     default:
       return <h1>Ops</h1>;
   }

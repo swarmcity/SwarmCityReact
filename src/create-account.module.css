@@ -5,6 +5,7 @@
   place-items: center flex-start;
   justify-items: stretch;
   padding: 137px 40px;
+  min-height: 100vh;
 }
 
 .closeButton {
@@ -55,6 +56,33 @@
   height: 90px;
   width: 90px;
   margin-top: 50px;
+}
+
+.button {
+  width: 75vw;
+  min-width: 200px;
+  max-width: 300px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 22px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 30px 42px;
+  border-radius: 2px;
+  cursor: pointer;
+  max-height: 82px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+}
+
+.buttontext {
+  color: white;
 }
 
 .uploadicon {
@@ -114,4 +142,20 @@ input:focus {
 
 .flexer {
   margin: 10px;
+}
+
+.dialogiconbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 75vw;
+}
+
+.confirm {
+  background-color: #ffffff !important;
+}
+
+.cancel {
+  background: none;
+  box-shadow: none;
 }
