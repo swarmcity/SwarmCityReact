@@ -8,6 +8,8 @@ import StopCreation from "./pages/StopCreation";
 import PasswordWarning from "./pages/PasswordWarning";
 import ChoosePassword from "./pages/ChoosePassword";
 import BackupWarning from "./pages/BackupWarning";
+import MakeBackup from "./pages/MakeBackup";
+import SuccessEnter from "./pages/SuccessEnter";
 
 const createOrRestoreId = "createOrRestoreId";
 const chooseAvatarId = "chooseAvatarId";
@@ -17,9 +19,11 @@ const passwordWarningId = "passwordWarningId";
 const choosePasswordId = "choosePasswordId";
 const backupWarningId = "backupWarningId";
 const unlockAccountId = "unlockAccountId";
+const makeBackupId = "makeBackupId";
+const successEnterId = "successEnterId";
 
 function CreateAccountRoot() {
-  const [stage, setStage] = useState(createOrRestoreId);
+  const [stage, setStage] = useState(successEnterId);
 
   switch (stage) {
     case createOrRestoreId:
@@ -63,6 +67,15 @@ function CreateAccountRoot() {
           unlockStage={() => setStage(unlockAccountId)}
         />
       );
+    case makeBackupId:
+      return (
+        <MakeBackup
+          nextStage={() => setStage(successEnterId)}
+          exitStage={() => setStage(stopCreationId)}
+        />
+      );
+    case successEnterId:
+      return <SuccessEnter />;
     default:
       return <h1>Ops</h1>;
   }
