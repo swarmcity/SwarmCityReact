@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 // Selectors
 import { getItemsByHashtag } from "../../services/hashtagList/selectors";
 
-import HashtagItem from "../item-detail/ItemDetail.js";
+import HashtagItem from "./HashtagItem.jsx";
 
 import { Route, Link } from "react-router-dom";
 
@@ -49,7 +49,9 @@ class HashtagRouter extends React.Component {
     ];
     return (
       <div className={hashtagstyles.container}>
-        <div className={styles.iconbuttonbig}>
+        <div
+          className={[styles.iconbuttonbig, hashtagstyles.plusbutton].join(" ")}
+        >
           <div className={styles.plusblueicon} />
         </div>
 

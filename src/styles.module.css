@@ -184,36 +184,6 @@ code {
   margin-left: 30px;
 }
 
-.username {
-  margin-left: 10px;
-  color: #24b1ff;
-  composes: smallBold;
-}
-
-.smallamount {
-  margin-right: 30px;
-  text-align: right;
-  color: #efd96f;
-  font-weight: 800;
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
-}
-
-.smallcurrency {
-  composes: smallestBold;
-  color: #efd96f;
-}
-
-.smallvalue {
-  composes: mainTitle4;
-  color: #efd96f;
-}
-
-.value {
-  margin-top: 7px;
-  font-size: 36px;
-}
-
 .logo {
   background-image: url("./images/SwarmCity-Sprite-normal.png");
   background-repeat: no-repeat;
@@ -244,12 +214,21 @@ code {
 }
 
 .item {
-  width: 100%;
   background-color: white;
   font-weight: 200;
   font-size: 22px;
   line-height: 19px;
   color: #333333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 0px 10px 4px 10px;
+  min-height: 121px;
+  padding: 29px;
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: auto auto;
+  grid-gap: 0px;
+  padding: 29px;
 }
 
 .smallitem {

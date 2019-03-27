@@ -12,7 +12,7 @@ const chooseUsernameId = "chooseUsernameId";
 const stopCreationId = "stopCreationId";
 
 function CreateAccountRoot() {
-  const [stage, setStage] = useState(stopCreationId);
+  const [stage, setStage] = useState(createOrRestoreId);
 
   switch (stage) {
     case createOrRestoreId:

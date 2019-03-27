@@ -12,16 +12,16 @@
   display: grid;
   grid-template-columns: auto min-content;
   grid-template-rows: auto auto;
-  grid-gap: 19px;
+  grid-gap: 0px;
   padding: 29px;
 }
 
 .description {
   color: #333333;
   font-weight: 200;
-  font-family: Montserrat, sans-serif;
-  font-size: 22px;
-  line-height: 28px;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
   align-self: flex-start;
   margin: 0px;
   padding: 0px;

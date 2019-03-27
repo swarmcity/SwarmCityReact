@@ -16,11 +16,11 @@ import PropTypes from "prop-types";
 class HashtagListRouter extends React.Component {
   render() {
     return (
-      <div
-        className={hashtaglist.container}
-        onClick={this.props.addHashtag.bind(this, "My hashtag")}
-      >
-        <div className={styles.iconbuttonbig}>
+      <div className={hashtaglist.container}>
+        <div
+          onClick={this.props.addHashtag.bind(this, "My hashtag")}
+          className={[styles.iconbuttonbig, hashtaglist.plusbutton].join(" ")}
+        >
           <div className={styles.plusicon} />
         </div>
 

@@ -1,8 +1,8 @@
 import React from "react";
 import UserAvatar from "react-user-avatar";
 import { NavLink } from "react-router-dom";
-import "./item-detail.css";
-import styles from "../../hashtag.module.css";
+import styles from "../../styles.module.css";
+import hashtag from "../../hashtag.module.css";
 
 export default class ItemDetail extends React.Component {
   componentWillMount() {}
@@ -16,28 +16,33 @@ export default class ItemDetail extends React.Component {
           this.props.item.itemId
         }
       >
-        <div className="item-container">
+        <div
+          className={hashtag.closeitem}
+          onClick={() => window.history.back()}
+        >
+          <div className={styles.exitgrayicon} />
+        </div>
+        <div className={styles.item}>
           <div>
-            <div className={styles.description}>
+            <div className={hashtag.description}>
               {this.props.item.description}
             </div>
-            <div className={styles.timestamp}>{this.props.item.timestamp}</div>
+            <div className={hashtag.timestamp}>{this.props.item.timestamp}</div>
           </div>
-          <div className="replies">X 1</div>
-          <div className={styles.avatar}>
+          <div className={hashtag.replies} />
+          <div className={hashtag.avatar}>
             <UserAvatar
-              className="avatar"
-              size="24"
+              size="36"
               name={this.props.item.seekername}
               src={this.props.item.avatar}
             />
-            <div className={styles.username}>
+            <div className={hashtag.username}>
               {this.props.item.seekername} - {this.props.item.seekerrep} SWR
             </div>
           </div>
-          <div className={styles.valuebox}>
-            <div className={styles.currency}>xDAI</div>
-            <div className={styles.value}>{this.props.item.amount}</div>
+          <div className={hashtag.valuebox}>
+            <div className={hashtag.currency}>xDAI</div>
+            <div className={hashtag.value}>{this.props.item.amount}</div>
           </div>
         </div>
       </NavLink>
