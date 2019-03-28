@@ -27,8 +27,8 @@ export default class HashtagItem extends React.Component {
           <div className={styles.avatar}>
             <UserAvatar
               size="24"
-              name={this.props.item.seekername}
-              src={this.props.item.avatar}
+              name={this.props.item.seekername || "no-name"}
+              src={this.props.item.avatar || ""}
             />
             <div className={styles.usernamesmall}>
               {this.props.item.seekername} - {this.props.item.seekerrep} SWR

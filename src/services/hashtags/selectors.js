@@ -1,19 +1,14 @@
 import { mountPoint } from "./";
 import { createSelector } from "reselect";
 
-export const getHashtagList = createSelector(
+export const getHashtags = createSelector(
   state => state[mountPoint],
-  hashtagList => hashtagList
-);
-
-export const getHashtagListOnlyShown = createSelector(
-  getHashtagList,
-  hashtagList => hashtagList.filter(({ hashtagShown }) => hashtagShown)
+  hashtags => hashtags
 );
 
 export const getItemsByHashtag = createSelector(
-  (state, ownProps) => {
-    const hashtagAddress = ((ownProps.match || {}).params || {}).hashtagAddress;
-  },
-  x => x
+  (state, ownProps) => ((ownProps.match || {}).params || {}).hashtagAddress,
+  getHashtags,
+  (hashtagAddress, hashtags) =>
+    Object.values((hashtags[hashtagAddress] || {}).items || {})
 );
