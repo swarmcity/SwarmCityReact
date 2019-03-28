@@ -8,6 +8,16 @@
   min-height: 100vh;
 }
 
+.containergreen {
+  background-color: #7ad69c;
+  display: flex;
+  flex-direction: column;
+  place-items: center flex-start;
+  justify-items: stretch;
+  padding: 137px 40px;
+  min-height: 100vh;
+}
+
 .closeButton {
   position: fixed;
   top: 18px;

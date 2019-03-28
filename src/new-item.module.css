@@ -96,15 +96,34 @@ input {
   margin: -5px 10px 0px 10px;
   padding: 20px 30px 18px 30px;
   display: flex;
+  flex-direction: column;
+  min-height: 40px;
+}
+
+.totalcost {
+  composes: bodyDefault from "./styles.module.css";
+  color: #666666;
+  display: flex;
   flex-direction: row;
   min-height: 40px;
   justify-content: flex-end;
+  align-content: baseline;
+}
+
+.totalcostbold {
+  composes: bodyDefault from "./styles.module.css";
+  font-weight: 800;
+  font-size: 22px;
+  color: #333333;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .iconbuttonbigblue {
   z-index: 55;
   display: flex;
   align-items: center;
+  align-self: flex-end;
   justify-content: center;
   width: 72px;
   height: 72px;
@@ -115,11 +134,78 @@ input {
   -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   background-color: #24b1ff;
-  margin: 20px 5px -35px 0px;
+  margin: 5px 5px -35px 0px;
 }
 
 .currency {
   composes: bodyBold from "./styles.module.css";
   color: #efd96f;
   margin-left: 10px;
+}
+
+@keyframes loadanimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+
+  25% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.point1 {
+  animation: loadanimation 1.5s linear 0s infinite;
+}
+
+.point2 {
+  animation: loadanimation 1.5s linear 0.3s infinite;
+}
+
+.point3 {
+  animation: loadanimation 1.5s linear 0.6s infinite;
+}
+
+.smallpoint {
+  margin: 20px 3px 0px 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.loading {
+  display: flex;
+  margin: 2px 0px 2px 0px;
+  box-sizing: border-box;
+  padding: 4px;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 100%;
+  margin: 0 0 2vh 0;
+  display: flex;
+  justify-content: center;
+}
+
+.statusbox {
+  color: white;
+  width: 100%;
+  max-width: 800px;
+}
+
+.confirm {
+  margin-top: 80px;
 }

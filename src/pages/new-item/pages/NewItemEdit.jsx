@@ -1,12 +1,17 @@
 import React from "react";
 import styles from "styles.module.css";
 import newitem from "new-item.module.css";
+import MyInfo from "components/my-info.js";
 
 export default class NewItemEdit extends React.Component {
   componentWillMount() {}
   render() {
     return (
-      <div>
+      <div className={newitem.container}>
+        <div className={newitem.topcontainer}>
+          <MyInfo />
+          <div className={newitem.hashtagname}>#GetSWT</div>
+        </div>
         <div className={newitem.addclose}>
           <div
             className={newitem.closeitem}
@@ -35,7 +40,15 @@ export default class NewItemEdit extends React.Component {
           </div>
         </div>
         <div className={newitem.infobox}>
-          <div className={newitem.iconbuttonbigblue}>
+          <div className={newitem.totalcost}>
+            <div>Total Cost: </div>
+            <div className={newitem.totalcostbold}>9.005 SWT</div>
+          </div>
+
+          <div
+            className={newitem.iconbuttonbigblue}
+            onClick={this.props.nextStage}
+          >
             <div className={styles.nextwhiteicon} />
           </div>
         </div>

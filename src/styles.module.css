@@ -408,6 +408,15 @@ code {
   height: 54px;
 }
 
+.nextgrayicon {
+  background-position: -54px -270px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 54px;
+  height: 54px;
+}
+
 .vmarkicon {
   background-position: -0px -54px;
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
