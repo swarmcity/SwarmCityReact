@@ -16,7 +16,7 @@ const errorItemId = "errorItemId";
 const successItemId = "successItemId";
 
 function NewItemRoot() {
-  const [stage, setStage] = useState(processItemId);
+  const [stage, setStage] = useState(newItemEditId);
 
   switch (stage) {
     case newItemEditId:
