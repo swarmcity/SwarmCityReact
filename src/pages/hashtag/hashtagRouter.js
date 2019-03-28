@@ -7,11 +7,42 @@ import MyInfo from "../../components/my-info.js";
 import ScIcon from "../../components/sc-icon.js";
 import { NavLink } from "react-router-dom";
 // Selectors
-import { getItemsByHashtag } from "../../services/hashtagList/selectors";
+import { getItemsByHashtag } from "../../services/hashtags/selectors";
 
 import HashtagItem from "./HashtagItem.jsx";
 
-import { Route, Link } from "react-router-dom";
+// const hashtagitems = [
+//   {
+//     description: "Sell SWT 10,000 for 3 BTC",
+//     timestamp: "12 Mar 1979 - 12:34",
+//     seekername: "Danny",
+//     amount: 30,
+//     seekerrep: 10,
+//     completed: 4,
+//     hashtagAddress: "0xjacques",
+//     itemId: "0xabc"
+//   },
+//   {
+//     description: "Bug report",
+//     timestamp: "12 Mar 1979 - 12: 34",
+//     seekername: "Danny",
+//     amount: 30,
+//     seekerrep: 10,
+//     completed: 2,
+//     hashtagAddress: "0xjacques",
+//     itemId: "0xabc1"
+//   },
+//   {
+//     description: "Another SWT giveaway to first NEW USER to see this!!",
+//     timestamp: "12 Mar 1979 - 12: 34",
+//     seekername: "Danny",
+//     amount: 30,
+//     seekerrep: 10,
+//     completed: 2,
+//     hashtagAddress: "0xjacques",
+//     itemId: "0xabc2"
+//   }
+// ];
 
 class HashtagRouter extends React.Component {
   render() {
@@ -59,29 +90,27 @@ class HashtagRouter extends React.Component {
           </div>
         </NavLink>
 
-        <div className={hashtagstyles.topcontainer}>
-          <div className={hashtagstyles.toprow}>
-            <MyInfo />
-            <NavLink to="/hashtag-list">
-              <div className={styles.exiticon} />
-            </NavLink>
-          </div>
-          <div className={hashtagstyles.hashtagname}>#GetSWT</div>
-          <div className={hashtagstyles.filterbox}>filter requests</div>
-        </div>
-
-        <div className={hashtagstyles.hashtagitems}>
-          {hashtagitems.map(item => (
-            <HashtagItem key={item.itemId} display="small" item={item} />
-          ))}
-        </div>
+    <div className={hashtagstyles.topcontainer}>
+      <div className={hashtagstyles.toprow}>
+        <MyInfo />
+        <NavLink to="/hashtag-list">
+          <div className={styles.exiticon} />
+        </NavLink>
       </div>
-    );
-  }
-}
+      <div className={hashtagstyles.hashtagname}>#GetSWT</div>
+      <div className={hashtagstyles.filterbox}>filter requests</div>
+    </div>
+
+    <div className={hashtagstyles.hashtagitems}>
+      {items.map(item => (
+        <HashtagItem key={item.itemId} display="small" item={item} />
+      ))}
+    </div>
+  </div>
+);
 
 const mapStateToProps = createStructuredSelector({
-  hashtags: getItemsByHashtag
+  items: getItemsByHashtag
 });
 
 export default connect(mapStateToProps)(HashtagRouter);
