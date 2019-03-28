@@ -49,11 +49,15 @@ class HashtagRouter extends React.Component {
     ];
     return (
       <div className={hashtagstyles.container}>
-        <div
-          className={[styles.iconbuttonbig, hashtagstyles.plusbutton].join(" ")}
-        >
-          <div className={styles.plusblueicon} />
-        </div>
+        <NavLink to="/new-item">
+          <div
+            className={[styles.iconbuttonbig, hashtagstyles.plusbutton].join(
+              " "
+            )}
+          >
+            <div className={styles.plusblueicon} />
+          </div>
+        </NavLink>
 
         <div className={hashtagstyles.topcontainer}>
           <div className={hashtagstyles.toprow}>

@@ -23,7 +23,7 @@ const makeBackupId = "makeBackupId";
 const successEnterId = "successEnterId";
 
 function CreateAccountRoot() {
-  const [stage, setStage] = useState(successEnterId);
+  const [stage, setStage] = useState(chooseAvatarId);
 
   switch (stage) {
     case createOrRestoreId:

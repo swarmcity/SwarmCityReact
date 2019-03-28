@@ -11,6 +11,7 @@ import Welcome from "./pages/welcome/welcome";
 import ItemDetailRouter from "./pages/item-detail/itemDetailRouter";
 import HashtagListRouter from "./pages/hashtag-list/hashtagListRouter";
 import HashtagRouter from "./pages/hashtag/hashtagRouter";
+import NewItemRoot from "./pages/new-item/NewItemRoot";
 import CreateAccount from "./pages/create-account/CreateAccountRoot";
 import styles from "./styles.module.css";
 
@@ -84,6 +85,7 @@ export default class App extends Component {
           path="/item-detail/:hashtag/:item"
           component={ItemDetailRouter}
         />
+        <Route path="/new-item" component={NewItemRoot} />
       </div>
     );
   }

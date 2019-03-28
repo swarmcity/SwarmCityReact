@@ -1,0 +1,125 @@
+.container {
+  composes: backgroundImg from "./styles.module.css";
+  margin-top: 150px;
+  min-height: 100vh;
+}
+
+.topcontainer {
+  composes: backgroundImg from "./styles.module.css";
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 33;
+  padding: 40px 40px 20px 40px;
+  height: 150px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hashtaglist {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.toprow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.addclose {
+  background-color: white;
+  color: #333333;
+  box-sizing: border-box;
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.hashtagname {
+  composes: mainTitle2 from "./styles.module.css";
+  color: #333333;
+  margin-top: 8px;
+}
+
+.usernameinputbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.valueinputbox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.usernameinput {
+  composes: bodyDefault from "./styles.module.css";
+  color: #333333;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #333333;
+}
+
+.hashtagfee {
+  composes: smallLight from "./styles.module.css";
+  margin-top: -20px;
+  color: #666666;
+}
+
+.valueinput {
+  composes: bodyDefault from "./styles.module.css";
+  font-weight: 800;
+  font-size: 22px;
+  width: 160px;
+  color: #efd96f;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #333333;
+}
+
+input {
+  background-color: transparent;
+  border: 0px;
+}
+
+.infobox {
+  background-color: white;
+  color: #bfbfbf;
+  box-sizing: border-box;
+  border-top: 1px dotted #bfbfbf;
+  margin: -5px 10px 0px 10px;
+  padding: 20px 30px 18px 30px;
+  display: flex;
+  flex-direction: row;
+  min-height: 40px;
+  justify-content: flex-end;
+}
+
+.iconbuttonbigblue {
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  background-color: #24b1ff;
+  margin: 20px 5px -35px 0px;
+}
+
+.currency {
+  composes: bodyBold from "./styles.module.css";
+  color: #efd96f;
+  margin-left: 10px;
+}
