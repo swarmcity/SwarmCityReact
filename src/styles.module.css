@@ -246,6 +246,30 @@ code {
 
 .myinfobox {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  color: #333333;
+}
+
+.usernamesmall {
+  color: #333333;
+}
+
+.accountbox {
+  composes: smallBold;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  line-height: 20px;
+  box-sizing: border-box;
+  color: #333333;
+}
+
+.balance {
+  composes: bodyBold;
+  font-size: 22px;
+  color: #efd96f;
 }
 
 .createaccountbutton {
@@ -360,6 +384,16 @@ code {
   height: 36px;
 }
 
+.exiticonblue {
+  background-position: -270px -72px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -270px -72px;
+  width: 36px;
+  height: 36px;
+}
+
 .exitgrayicon {
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
   background-repeat: no-repeat;
@@ -394,9 +428,9 @@ code {
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
   background-repeat: no-repeat;
   background-size: 324px 324px;
-  background-position: -54px -162px;
-  width: 36px;
-  height: 36px;
+  background-position: -180px -198px;
+  width: 32px;
+  height: 32px;
 }
 
 .nextwhiteicon {
@@ -426,6 +460,15 @@ code {
   height: 54px;
 }
 
+.vmarkiconwhite {
+  background-position: -0px -216px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 54px;
+  height: 54px;
+}
+
 .xmarkicon {
   background-position: -54px -0px;
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
@@ -447,10 +490,13 @@ code {
 .flexrow {
   display: flex;
   flex-direction: row;
-  background-color: rebeccapurple;
 }
 
 .flexcolumn {
   display: flex;
   flex-direction: row;
+}
+
+.useraddress {
+  compose: smallLight;
 }

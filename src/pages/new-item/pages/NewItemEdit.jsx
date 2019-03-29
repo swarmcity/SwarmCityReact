@@ -42,7 +42,7 @@ export default class NewItemEdit extends React.Component {
         <div className={newitem.infobox}>
           <div className={newitem.totalcost}>
             <div>Total Cost: </div>
-            <div className={newitem.totalcostbold}>9.005 SWT</div>
+            <div className={newitem.totalcostbold}>9.005 xDAI</div>
           </div>
 
           <div

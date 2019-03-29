@@ -4,7 +4,7 @@ import createAccount from "create-account.module.css";
 import newItem from "new-item.module.css";
 import ScIcon from "components/sc-icon.js";
 
-const ProcessItem = ({ nextStage, exitStage }) => (
+const ProcessItem = ({ successStage, errorStage }) => (
   <div className={createAccount.containergreen}>
     <div className={createAccount.title}>Processing request</div>
     <div className={newItem.statusbox}>
@@ -24,7 +24,7 @@ const ProcessItem = ({ nextStage, exitStage }) => (
         createAccount.confirm,
         newItem.confirm
       ].join(" ")}
-      onClick={nextStage}
+      onClick={successStage}
     >
       <div className={styles.nextgrayicon} />
     </div>

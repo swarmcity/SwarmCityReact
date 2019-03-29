@@ -13,6 +13,9 @@ import HashtagListRouter from "./pages/hashtag-list/hashtagListRouter";
 import HashtagRouter from "./pages/hashtag/hashtagRouter";
 import NewItemRoot from "./pages/new-item/NewItemRoot";
 import CreateAccount from "./pages/create-account/CreateAccountRoot";
+import MyWalletRoot from "./pages/my-wallet/MyWalletRoot";
+import MyProfileRoot from "./pages/my-profile/MyProfileRoot";
+
 import styles from "./styles.module.css";
 
 var Buffer = require("safe-buffer").Buffer;
@@ -86,6 +89,8 @@ export default class App extends Component {
           component={ItemDetailRouter}
         />
         <Route path="/new-item" component={NewItemRoot} />
+        <Route path="/my-profile" component={MyProfileRoot} />
+        <Route path="/my-wallet" component={MyWalletRoot} />
       </div>
     );
   }

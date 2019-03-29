@@ -1,0 +1,309 @@
+.container {
+  composes: backgroundImg from "./styles.module.css";
+  margin-top: 107px;
+  min-height: 100vh;
+}
+
+.topcontainer {
+  box-sizing: border-box;
+  composes: backgroundImg from "./styles.module.css";
+  position: fixed;
+  top: 0;
+  z-index: 33;
+  padding: 40px 40px 20px 40px;
+  width: 100vw;
+  border-bottom: 1px solid #ddd;
+}
+
+.logcontainer {
+  box-sizing: border-box;
+  composes: backgroundImg from "./styles.module.css";
+  z-index: 33;
+  padding: 40px 40px 20px 40px;
+  width: 100vw;
+  margin-top: 235px;
+}
+
+.shortcodebox {
+  display: flex;
+  flex-direction: row;
+  place-items: center center;
+  width: 75vw;
+  justify-content: center;
+}
+
+.transfer {
+  margin-top: 30px;
+}
+
+.flexer {
+  margin: 30px;
+}
+
+.closeButton {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+}
+
+.shortcode {
+  composes: mainTitle3 from "./styles.module.css";
+}
+
+.receivebox {
+  margin-top: 10px;
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accountlist {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.accountitem {
+  padding: 25px 10vw 22px;
+  border-bottom: 1px solid #ddd;
+}
+
+.bigbalance {
+  margin-top: 50px;
+  composes: mainTitle1 from "./styles.module.css";
+  color: #efd96f;
+}
+
+.currency {
+  composes: smallBold from "./styles.module.css";
+  color: #efd96f;
+}
+
+.darkcurrency {
+  composes: smallBold from "./styles.module.css";
+  color: #333333;
+}
+
+.transferbtns {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  composes: mainTitle1 from "./styles.module.css";
+  color: white;
+  text-align: center;
+}
+
+.titleblue {
+  composes: mainTitle1 from "./styles.module.css";
+  color: #24b1ff;
+  text-align: center;
+}
+
+.formtitle {
+  composes: mainTitle1 from "./styles.module.css";
+  color: #acacac;
+  text-align: center;
+}
+
+.receivetitle {
+  composes: bodyDefault from "./styles.module.css";
+}
+
+.subtitle {
+  composes: smallLight from "./styles.module.css";
+  color: white;
+  text-align: center;
+  margin: 20px 0px 60px 0px;
+  line-height: 18px;
+}
+
+.dialogiconbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 75vw;
+}
+
+.confirm {
+  background-color: #ffffff !important;
+}
+
+.cancel {
+  background: none;
+  box-shadow: none;
+}
+
+.username {
+  composes: bodyBold from "./styles.module.css";
+  color: #333333;
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  line-height: 14px;
+}
+
+.showkeystoggle {
+  composes: smallBold from "./styles.module.css";
+  color: #666666;
+  text-align: center;
+  margin: -10px 0px 0px 0px;
+  line-height: 14px;
+  border-bottom: 2px dotted #acacac;
+}
+
+.formsubtitle {
+  composes: smallLight from "./styles.module.css";
+  color: #333333;
+  text-align: center;
+  margin: 20px 0px 10px 0px;
+  line-height: 18px;
+}
+
+.formcontainer {
+  composes: backgroundImg from "./styles.module.css";
+  display: flex;
+  flex-direction: column;
+  place-items: center flex-start;
+  justify-items: stretch;
+  padding: 137px 40px;
+}
+
+.box {
+  composes: bodyBold from "./styles.module.css";
+  color: #333333;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 54px 35px 40px 35px;
+  background-color: white;
+  max-width: 450px;
+  margin-bottom: 8vh;
+  line-height: 20px;
+}
+
+.placeholder {
+  background-color: inherit;
+  opacity: 1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./images/defaultAvatar.png);
+  height: 90px;
+  width: 90px;
+  margin-top: 50px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  min-width: 132px;
+  max-width: 300px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 22px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  padding: 20px 30px 30px 20px;
+  align-items: center;
+  justify-items: center;
+  border-radius: 2px;
+  cursor: pointer;
+  max-height: 82px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  margin-right: 10px;
+  margin-botton: 10px;
+  max-height: 82px;
+  height: 62px;
+}
+
+.buttongray {
+  width: 75vw;
+  min-width: 200px;
+  max-width: 300px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 22px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 30px 42px;
+  border-radius: 2px;
+  cursor: pointer;
+  max-height: 82px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 60px;
+}
+
+.buttontextblue {
+  color: #24b1ff;
+}
+
+.shortcodebox {
+  width: 75vw;
+}
+
+.shortcodeinput {
+    composes: bodyBold from "./styles.module.css";
+    color: #333333;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #333333;
+    box-sizing: border-box;
+}
+
+.valueinputbox {
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.valueinput {
+  composes: bodyBold from "./styles.module.css";
+  color: #333333;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #333333;
+  box-sizing: border-box;
+}
+
+input {
+  background-color: transparent;
+  border: 0px;
+}
+
+.flexer {
+  margin: 10px;
+}
+
+.dialogiconbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 75vw;
+  margin-top: 30px;
+}
+
+.confirm {
+  background-color: #ffffff !important;
+}
+
+.cancel {
+  background: none;
+  box-shadow: none;
+}

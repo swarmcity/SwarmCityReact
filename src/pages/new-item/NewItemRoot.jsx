@@ -7,6 +7,7 @@ import newItem from "../../new-item.module.css";
 import NewItemEdit from "./pages/NewItemEdit";
 import ConfirmItem from "./pages/ConfirmItem";
 import ProcessItem from "./pages/ProcessItem";
+import SuccessItem from "./pages/SuccessItem";
 
 const newItemEditId = "newItemEditId";
 const confirmItemId = "confirmItemId";
@@ -35,6 +36,8 @@ function NewItemRoot() {
           successStage={() => setStage(successItemId)}
         />
       );
+    case successItemId:
+      return <SuccessItem />;
     default:
       return <h1>Ops</h1>;
   }
