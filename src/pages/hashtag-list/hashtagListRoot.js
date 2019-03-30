@@ -23,7 +23,6 @@ class HashtagListRouter extends React.Component {
         >
           <div className={styles.plusicon} />
         </div>
-
         <div className={hashtaglist.topcontainer}>
           <MyInfo />
           <NavLink to="/">

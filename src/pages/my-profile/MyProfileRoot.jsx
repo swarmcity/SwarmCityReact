@@ -25,6 +25,8 @@ const successEnterId = "successEnterId";
 function MyProfileRoot() {
   const [stage, setStage] = useState(createOrRestoreId);
 
+  return <h1>MY PROFILE</h1>;
+
   switch (stage) {
     case createOrRestoreId:
       return (

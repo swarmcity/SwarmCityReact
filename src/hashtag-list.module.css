@@ -33,7 +33,7 @@
 }
 
 .hashtaglistitem {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--sc-grey1b);
   padding-bottom: 20px;
 }
 
@@ -44,7 +44,7 @@
 
 .completed {
   composes: smallLight from "./styles.module.css";
-  color: #666666;
+  color: var(--sc-grey3);
   padding: 0px 40px 0px 40px;
   margin-top: -10px;
 }

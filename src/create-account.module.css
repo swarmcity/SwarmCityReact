@@ -105,10 +105,15 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(./images/defaultAvatar.png);
   height: 90px;
   width: 90px;
   margin-top: 50px;
+}
+
+.avatarImage {
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
 }
 
 .button {
@@ -202,16 +207,10 @@
   margin-bottom: 20px;
 }
 
-/* input {
-  background-color: transparent;
-  border: 0px;
-}
-
 input:focus {
   font-weight: bold;
-} */
-
-.flexer {
+}
+*/ .flexer {
   margin: 10px;
 }
 

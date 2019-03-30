@@ -3,8 +3,13 @@ import AvatarEditor from "react-avatar-editor";
 import defaultAvatar from "images/defaultAvatar.png";
 import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
+import PropTypes from "prop-types";
 
 export default class ChooseAvatar extends React.Component {
+  static propTypes = {
+    setAvatar: PropTypes.func.isRequired
+  };
+
   state = {
     image: defaultAvatar,
     allowZoomOut: false,
@@ -61,6 +66,7 @@ export default class ChooseAvatar extends React.Component {
 
       // If you want the image resized to the canvas size (also a HTMLCanvasElement)
       const canvasScaled = this.editor.getImageScaledToCanvas();
+      this.props.setAvatar(canvas.toDataURL("image/jpeg", 0.82));
     }
   };
 
@@ -100,7 +106,10 @@ export default class ChooseAvatar extends React.Component {
           className={styles.iconbuttonbigcenter}
           onClick={this.props.nextStage}
         >
-          <div className={styles.nextblueicon} />
+          <div
+            className={styles.nextblueicon}
+            onClick={this.onClickSave.bind(this)}
+          />
         </div>
       </div>
     );

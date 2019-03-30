@@ -4,12 +4,12 @@
   "description": "Swarm City is a blockchain based marketplace with a built in reputation system. It uses blockchain technology and smart contracts to allow people to communicate and transact value, and earn contextual reputation.",
   "icons": [
     {
-      "src": "images/manifest/icon-192x192.png",
+      "src": "manifest/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/manifest/icon-512x512.png",
+      "src": "manifest/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
