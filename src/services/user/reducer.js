@@ -3,7 +3,7 @@ import { assertAction } from "../utilities";
 
 // Service > user
 const initialState = {
-  username: "Lion",
+  username: "Kars Rhyder",
   address: "0x127317249124",
   publicKey: "0x239423842837438247923849234",
   avatar:

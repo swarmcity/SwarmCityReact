@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 import { getItemsByHashtag } from "../../services/hashtags/selectors";
 import HashtagItem from "./HashtagItem.jsx";
 
-class HashtagRouter extends React.Component {
+class HashtagRoot extends React.Component {
   render() {
     const items = [
       {
@@ -60,7 +60,7 @@ class HashtagRouter extends React.Component {
           <div className={hashtagstyles.toprow}>
             <MyInfo />
             <NavLink to="/hashtag-list">
-              <div className={styles.exiticon} />
+              <div className={styles.backicon} />
             </NavLink>
           </div>
           <div className={hashtagstyles.hashtagname}>#GetSWT</div>
@@ -81,4 +81,4 @@ const mapStateToProps = createStructuredSelector({
   items: getItemsByHashtag
 });
 
-export default connect(mapStateToProps)(HashtagRouter);
+export default connect(mapStateToProps)(HashtagRoot);

@@ -458,6 +458,15 @@ code {
   height: 54px;
 }
 
+.nextgreysmallicon {
+  background-position: -252px -234px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 32px;
+  height: 32px;
+}
+
 .vmarkicon {
   background-position: -0px -54px;
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
@@ -506,4 +515,12 @@ code {
 
 .useraddress {
   compose: smallLight;
+}
+
+.yellow {
+  color: var(--sc-yellow);
+}
+
+.blue {
+  color: var(--sc-blue);
 }

@@ -1,22 +1,23 @@
 import React from "react";
-import styles from "../../hashtag-list.module.css";
+import hashtaglist from "../../hashtag-list.module.css";
 import UserAvatar from "react-user-avatar";
 import { NavLink } from "react-router-dom";
+import styles from "../../styles.module.css";
 
 export default class HashtagListItem extends React.Component {
   componentWillMount() {}
   render() {
     return (
       <NavLink to={"hashtag/" + this.props.hashtagaddress}>
-        <div className={styles.hashtaglistitem}>
-          <div className={styles.content}>
-            <div className={styles.hashtaglistname}>
+        <div className={hashtaglist.hashtaglistitem}>
+          <div className={hashtaglist.itemcontent}>
+            <div className={hashtaglist.hashtaglistname}>
               #{this.props.hashtagname}
             </div>
-            <div className={styles.completed}>
-              {this.props.completed} deals completed
-            </div>
-            <div className={styles.arrow} />
+            <div className={styles.nextgreysmallicon} />
+          </div>
+          <div className={hashtaglist.completed}>
+            {this.props.completed} deals completed
           </div>
         </div>
       </NavLink>

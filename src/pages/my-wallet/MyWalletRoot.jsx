@@ -14,7 +14,7 @@ const walletConfirmId = "walletConfirmId";
 const walletSuccessId = "walletSuccessId";
 
 function MyWalletRoot() {
-  const [stage, setStage] = useState(walletBridgedId);
+  const [stage, setStage] = useState(walletAccountListId);
 
   switch (stage) {
     case walletAccountListId:

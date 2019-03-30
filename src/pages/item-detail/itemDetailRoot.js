@@ -1,10 +1,6 @@
 import React from "react";
-import styles from "../../styles.module.css";
 import MyInfo from "../../components/my-info.js";
 import ItemDetail from "./ItemDetail.js";
-import { Route, Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import ScIcon from "../../components/sc-icon.js";
 import itemdetail from "../../item-detail.module.css";
 
 const item = {
@@ -17,7 +13,7 @@ const item = {
   hashtagAddress: "0xjacques",
   itemId: "0xabc"
 };
-export default class ItemDetailRouter extends React.Component {
+export default class ItemDetailRoot extends React.Component {
   render() {
     return (
       <div className={itemdetail.container}>

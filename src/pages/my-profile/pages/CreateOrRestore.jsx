@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
 
-const CreateOrRestore = ({ nextStage }) => (
+const CreateOrRestore = ({ nextStage, exitStage }) => (
   <div className={createAccount.container}>
-    <div className={createAccount.closeButton}>
+    <div
+      className={createAccount.closeButton}
+      onClick={() => window.history.back()}
+    >
       <div className={styles.closeicon} />
     </div>
     <div className={createAccount.title}>Let's create an account</div>

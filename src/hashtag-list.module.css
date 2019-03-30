@@ -24,9 +24,17 @@
   align-items: left;
 }
 
+.itemcontent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 40px 20px 40px;
+  align-items: flex-end;
+}
+
 .hashtaglistitem {
-  padding: 25px 10vw 22px;
   border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
 }
 
 .hashtaglistname {
@@ -37,6 +45,8 @@
 .completed {
   composes: smallLight from "./styles.module.css";
   color: #666666;
+  padding: 0px 40px 0px 40px;
+  margin-top: -10px;
 }
 
 .plusbutton {
