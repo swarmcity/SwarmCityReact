@@ -1,31 +1,36 @@
 import React from "react";
 import styles from "../styles.module.css";
-import { NavLink } from "react-router-dom";
 import UserAvatar from "react-user-avatar";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { NavLink } from "react-router-dom";
 
-const account = {
-  username: "Lion",
-  avatar: "",
-  balance: 120.57
-};
-export default class MyInfo extends React.Component {
+import {
+  getUsername,
+  getUserBalances,
+  getUserAvatar
+} from "services/user/selectors";
+
+class MyInfo extends React.Component {
   render() {
-    if (account) {
+    if (this.props.username) {
       return (
         <div className={styles.myinfobox}>
           <div className={styles.avatar}>
             <UserAvatar
               size="40"
-              name={account.username || "no-name"}
-              src={account.avatar || ""}
+              name={this.props.username || "no-name"}
+              src={this.props.avatar || ""}
             />
           </div>
           <div className={styles.accountbox}>
             <NavLink to="/my-profile">
-              <div className={styles.usernamesmall}>{account.username}</div>
+              <div className={styles.usernamesmall}>{this.props.username}</div>
             </NavLink>
             <NavLink to="/my-wallet">
-              <div className={styles.balance}>{account.balance} xDAI</div>
+              <div className={styles.balance}>
+                {this.props.balances.kovan.swt} xDAI
+              </div>
             </NavLink>
           </div>
         </div>
@@ -41,3 +46,18 @@ export default class MyInfo extends React.Component {
     }
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  username: getUsername,
+  balances: getUserBalances,
+  avatar: getUserAvatar
+});
+
+const mapDispatchToProps = dispatch => ({
+  //addHashtag: name => dispatch({ type: "ADD_HASHTAG", hashtag: { name } })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyInfo);

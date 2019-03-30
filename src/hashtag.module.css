@@ -19,11 +19,7 @@
 }
 
 .replies {
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 15px;
+  composes: smallBold from "./styles.module.css";
   text-align: right;
   align-self: flex-start;
 }
@@ -52,7 +48,7 @@
 
 .hashtagname {
   composes: mainTitle2 from "./styles.module.css";
-  color: #333333;
+  color: var(--sc-grey4);
   margin-top: 28px;
 }
 
@@ -74,7 +70,7 @@
 
 .username {
   margin-left: 15px;
-  color: #24b1ff;
+  color: var(--sc-blue);
   font-weight: 800;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
@@ -96,7 +92,7 @@
 .amount {
   margin-right: 30px;
   text-align: right;
-  color: #efd96f;
+  color: var(--sc-yellow);
   font-weight: 800;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
@@ -104,15 +100,15 @@
 
 .currency {
   composes: smallestBold from "./styles.module.css";
-  color: #efd96f;
+  color: var(--sc-yellow);
 }
 
 .value {
   composes: mainTitle4 from "./styles.module.css";
-  color: #efd96f;
+  color: var(--sc-yellow);
 }
 .description {
-  color: #333333;
+  color: var(--sc-grey4);
   font-weight: 200;
   font-family: Montserrat, sans-serif;
   font-weight: 200;
@@ -129,7 +125,7 @@
   box-sizing: border-box;
   padding: 5px 10px;
   background-color: rgba(0, 0, 0, 0.035);
-  color: #666666;
+  color: var(--sc-grey3);
   width: 110px;
   text-align: center;
   margin-top: 18px;
@@ -144,20 +140,20 @@
 
 .username {
   margin-left: 10px;
-  color: #24b1ff;
+  color: var(--sc-blue);
   composes: smallBold from "./styles.module.css";
 }
 
 .usernamesmall {
   margin-left: 10px;
-  color: #24b1ff;
+  color: var(--sc-blue);
   composes: smallestBold from "./styles.module.css";
 }
 
 .smallamount {
   margin-right: 30px;
   text-align: right;
-  color: #efd96f;
+  color: var(--sc-yellow);
   font-weight: 800;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
@@ -165,12 +161,12 @@
 
 .smallcurrency {
   composes: smallestBold from "./styles.module.css";
-  color: #efd96f;
+  color: var(--sc-yellow);
 }
 
 .smallvalue {
   composes: mainTitle4 from "./styles.module.css";
-  color: #efd96f;
+  color: var(--sc-yellow);
 }
 
 .value {

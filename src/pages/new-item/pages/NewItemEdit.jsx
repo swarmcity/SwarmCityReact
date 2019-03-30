@@ -22,12 +22,21 @@ export default class NewItemEdit extends React.Component {
         </div>
         <div className={styles.item}>
           <div>
-            <div className={newitem.usernameinputbox}>
-              <input
-                autoFocus
-                className={newitem.usernameinput}
-                placeholder="What are you looking for?"
-              />
+            <div className={newitem.userinputbox}>
+              <label
+                for="itemdescription"
+                className={newitem.usernameinputlabel}
+              >
+                What are you looking for?
+              </label>
+
+              <div className={newitem.usernameinputbox}>
+                <input
+                  id="itemdescription"
+                  className={newitem.usernameinput}
+                  placeholder="What are you looking for?"
+                />
+              </div>
             </div>
             <div className={newitem.valueinputbox}>
               <input

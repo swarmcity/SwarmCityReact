@@ -1,5 +1,5 @@
 .container {
-  background-color: #24b1ff;
+  background-color: var(--sc-blue);
   display: flex;
   flex-direction: column;
   place-items: center flex-start;
@@ -9,7 +9,7 @@
 }
 
 .containergreen {
-  background-color: #7ad69c;
+  background-color: var(--sc-green);
   display: flex;
   flex-direction: column;
   place-items: center flex-start;
@@ -35,13 +35,13 @@
 
 .titleblue {
   composes: mainTitle1 from "./styles.module.css";
-  color: #24b1ff;
+  color: var(--sc-blue);
   text-align: center;
 }
 
 .formtitle {
   composes: mainTitle1 from "./styles.module.css";
-  color: #acacac;
+  color: var(--sc-grey3b);
   text-align: center;
 }
 
@@ -55,7 +55,7 @@
 
 .username {
   composes: bodyBold from "./styles.module.css";
-  color: #333333;
+  color: var(--sc-grey4);
   text-align: center;
   margin: 20px 0px 0px 0px;
   line-height: 14px;
@@ -63,16 +63,16 @@
 
 .showkeystoggle {
   composes: smallBold from "./styles.module.css";
-  color: #666666;
+  color: var(--sc-grey3);
   text-align: center;
   margin: -10px 0px 0px 0px;
   line-height: 14px;
-  border-bottom: 2px dotted #acacac;
+  border-bottom: 2px dotted var(--sc-grey3b);
 }
 
 .formsubtitle {
   composes: smallLight from "./styles.module.css";
-  color: #333333;
+  color: var(--sc-grey4);
   text-align: center;
   margin: 20px 0px 10px 0px;
   line-height: 18px;
@@ -89,7 +89,7 @@
 
 .box {
   composes: bodyBold from "./styles.module.css";
-  color: #333333;
+  color: var(--sc-grey4);
   text-align: center;
   box-sizing: border-box;
   padding: 54px 35px 40px 35px;
@@ -112,18 +112,11 @@
 }
 
 .button {
+  composes: bodyButton from "./styles.module.css";
+  composes: baseShadow from "./styles.module.css";
   width: 75vw;
   min-width: 200px;
   max-width: 300px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 22px;
-  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   text-align: center;
   box-sizing: border-box;
   padding: 30px 42px;
@@ -142,15 +135,8 @@
   width: 75vw;
   min-width: 200px;
   max-width: 300px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 22px;
-  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  composes: bodyButton from "./styles.module.css";
+  composes: baseShadow from "./styles.module.css";
   text-align: center;
   box-sizing: border-box;
   padding: 30px 42px;
@@ -162,7 +148,7 @@
 }
 
 .buttontextblue {
-  color: #24b1ff;
+  color: var(--sc-blue);
 }
 
 .uploadicon {
@@ -177,7 +163,7 @@
   padding: 6px;
   width: 30px;
   height: 30px;
-  background-color: #24b1ff;
+  background-color: var(--sc-blue);
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
@@ -197,7 +183,7 @@
 
 .usernameinputbox {
   width: 75vw;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid var(--sc-grey4);
   display: flex;
   flex-direction: column;
   place-items: center center;
@@ -206,7 +192,7 @@
 .usernameinput {
   composes: bodyDefault from "./styles.module.css";
   width: 205px;
-  color: #333333;
+  color: var(--sc-grey4);
   text-align: center;
   padding-bottom: 5px;
 }
@@ -216,14 +202,14 @@
   margin-bottom: 20px;
 }
 
-input {
+/* input {
   background-color: transparent;
   border: 0px;
 }
 
 input:focus {
   font-weight: bold;
-}
+} */
 
 .flexer {
   margin: 10px;

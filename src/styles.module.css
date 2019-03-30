@@ -19,21 +19,21 @@ a {
 
   /*----------COLORS----------*/
   /* Primary tone */
-  @value --sc-yellow: #EFD96F;
-  @value --sc-blue: #24B1FF;
+  --sc-yellow: #efd96f;
+  --sc-blue: #24b1ff;
   /* Secondary tone */
-  @value --sc-green: #7AD69C;
-  @value --sc-red: #F55858;
-  @value --sc-grey4: #333333;
+  --sc-green: #7ad69c;
+  --sc-red: #f55858;
+  --sc-grey4: #333333;
   /* Additional colors */
-  @value --sc-white: #FAFAFA;
-  @value --sc-grey1: #F2F2F2;
-  @value --sc-grey1b: #E6E6E6;
-  @value --sc-grey2: #BFBFBF;
-  @value --sc-grey3: #666666;
-  @value --sc-grey3b: #ACACAC;
-  @value --sc-green2: #23B460;
-  @value --sc-red2: #D0021B;
+  --sc-white: #fafafa;
+  --sc-grey1: #f2f2f2;
+  --sc-grey1b: #e6e6e6;
+  --sc-grey2: #bfbfbf;
+  --sc-grey3: #666666;
+  --sc-grey3b: #acacac;
+  --sc-green2: #23b460;
+  --sc-red2: #d0021b;
 }
 
 /*----------TYPOGRAPHY----------*/
@@ -136,6 +136,13 @@ a {
   text-decoration: none;
   border-bottom: 1px dotted var(--sc-grey3b);
 } */
+
+.baseShadow {
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

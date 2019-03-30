@@ -9,10 +9,10 @@ import "./contracts/contractAbis";
 import Moment from "moment";
 import Welcome from "./pages/welcome/welcome";
 import ItemDetailRouter from "./pages/item-detail/itemDetailRouter";
-import HashtagListRouter from "./pages/hashtag-list/hashtagListRouter";
+import HashtagListRoot from "./pages/hashtag-list/hashtagListRoot";
 import HashtagRouter from "./pages/hashtag/hashtagRouter";
 import NewItemRoot from "./pages/new-item/NewItemRoot";
-import CreateAccount from "./pages/create-account/CreateAccountRoot";
+import CreateAccountRoot from "./pages/create-account/CreateAccountRoot";
 import MyWalletRoot from "./pages/my-wallet/MyWalletRoot";
 import MyProfileRoot from "./pages/my-profile/MyProfileRoot";
 
@@ -81,8 +81,8 @@ export default class App extends Component {
     return (
       <div className={styles.SwarmCity}>
         <Route exact path="/" component={Welcome} />
-        <Route path="/create-account" component={CreateAccount} />
-        <Route path="/hashtag-list" component={HashtagListRouter} />
+        <Route path="/create-account" component={CreateAccountRoot} />
+        <Route path="/hashtag-list" component={HashtagListRoot} />
         <Route path="/hashtag/:hashtagAddress" component={HashtagRouter} />
         <Route
           path="/item-detail/:hashtag/:item"

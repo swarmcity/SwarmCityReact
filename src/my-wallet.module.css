@@ -25,11 +25,7 @@
 }
 
 .shortcodebox {
-  display: flex;
-  flex-direction: row;
-  place-items: center center;
   width: 75vw;
-  justify-content: center;
 }
 
 .transfer {
@@ -86,6 +82,7 @@
 .darkcurrency {
   composes: smallBold from "./styles.module.css";
   color: #333333;
+  margin-left: 10px;
 }
 
 .transferbtns {
@@ -198,20 +195,13 @@
 }
 
 .button {
+  composes: baseShadow from "./styles.module.css";
+  composes: bodyButton from "./styles.module.css";
   display: flex;
   flex-direction: column;
   width: 75vw;
   min-width: 132px;
   max-width: 300px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 22px;
-  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   padding: 20px 30px 30px 20px;
   align-items: center;
@@ -228,18 +218,11 @@
 }
 
 .buttongray {
+  composes: bodyButton from "./styles.module.css";
+  composes: baseShadow from "./styles.module.css";
   width: 75vw;
   min-width: 200px;
   max-width: 300px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 22px;
-  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   text-align: center;
   box-sizing: border-box;
   padding: 30px 42px;
@@ -259,11 +242,11 @@
 }
 
 .shortcodeinput {
-    composes: bodyBold from "./styles.module.css";
-    color: #333333;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #333333;
-    box-sizing: border-box;
+  composes: bodyBold from "./styles.module.css";
+  color: #333333;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #333333;
+  box-sizing: border-box;
 }
 
 .valueinputbox {
