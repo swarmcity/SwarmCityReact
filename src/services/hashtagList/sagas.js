@@ -6,7 +6,7 @@ import Web3 from "web3";
 // Service > hashtagList
 
 const web3 = new Web3(
-  "https://kovan.infura.io/ca70f20892694c5da631eecc4992f7ce"
+  "wss://kovan.infura.io/ws/v3/ca70f20892694c5da631eecc4992f7ce"
 );
 
 function* fetchHashtagList() {

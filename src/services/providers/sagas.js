@@ -46,7 +46,10 @@ function bytes32ToHash(bytes32) {
 function* testInitialSaga() {
   try {
     const hashtagAddress = "0x59327811AB97B9d56815b9934461d134c78Dd79A";
-    yield call(setWeb3Instance, "http://127.0.0.1:7545");
+    yield call(
+      setWeb3Instance,
+      "wss://kovan.infura.io/ws/v3/ca70f20892694c5da631eecc4992f7ce"
+    );
     yield call(setIpfsInstance, "https://ipfs.infura.io");
     yield put(fetchHashtag({ hashtagAddress }));
   } catch (e) {
