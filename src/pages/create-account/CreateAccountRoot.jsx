@@ -1,8 +1,8 @@
+// Imports
 import React, { useState } from "react";
-
 import createAccountHelper from "helpers/createAccountHelper";
-
 import defaultAvatar from "images/defaultAvatar.png";
+
 // Sub-pages
 import CreateOrRestore from "./pages/CreateOrRestore";
 import ChooseUsername from "./pages/ChooseUsername";
@@ -16,6 +16,7 @@ import SuccessEnter from "./pages/SuccessEnter";
 import ErrorAccount from "./pages/ErrorAccount";
 import ProcessAccount from "./pages/ProcessAccount";
 
+// Ids
 const createOrRestoreId = "createOrRestoreId";
 const chooseAvatarId = "chooseAvatarId";
 const chooseUsernameId = "chooseUsernameId";
@@ -51,6 +52,7 @@ function CreateAccountRoot() {
     }
   }
 
+  // Router
   switch (stage) {
     case createOrRestoreId:
       return (
