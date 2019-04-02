@@ -1,6 +1,5 @@
 import React from "react";
 import hashtaglist from "../../hashtag-list.module.css";
-import UserAvatar from "react-user-avatar";
 import { NavLink } from "react-router-dom";
 import styles from "../../styles.module.css";
 

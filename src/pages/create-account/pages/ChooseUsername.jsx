@@ -18,11 +18,11 @@ const ChooseUsername = ({
     <div className={createAccount.formtitle}>
       Choose an avatar and a username.
     </div>
-    <div className={createAccount.placeholder} onClick={avatarStage}>
+    <div className={createAccount.placeholder}>
       <img src={avatar} className={createAccount.avatarImage} alt="avatar" />
     </div>
     <div className={createAccount.uploadbtn} />
-    <div className={createAccount.uploadicon}>
+    <div className={createAccount.uploadicon} onClick={avatarStage}>
       <div className={createAccount.arrowup} />
     </div>
     <div className={createAccount.usernameinputbox}>
@@ -35,7 +35,6 @@ const ChooseUsername = ({
         onChange={e => setUsername(e.target.value)}
       />
     </div>
-    <div className={createAccount.flexer} />
     <div
       tabIndex="2"
       className={[styles.iconbuttonbig, createAccount.confirm].join(" ")}

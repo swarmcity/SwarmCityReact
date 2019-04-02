@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
-import ScIcon from "components/sc-icon.js";
 
 const BackupWarning = ({ nextStage, exitStage, unlockStage }) => (
   <div className={createAccount.formcontainer}>

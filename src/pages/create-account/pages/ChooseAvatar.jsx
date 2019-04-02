@@ -75,36 +75,50 @@ export default class ChooseAvatar extends React.Component {
   render() {
     return (
       <div className={createAccount.formcontainer}>
-        <div>Choose an image and crop it</div>
-        <AvatarEditor
-          ref={this.setEditorRef}
-          scale={parseFloat(this.state.scale)}
-          width={this.state.width}
-          height={this.state.height}
-          position={this.state.position}
-          onPositionChange={this.handlePositionChange}
-          rotate={parseFloat(this.state.rotate)}
-          borderRadius={this.state.borderRadius}
-          image={this.state.image}
-        />
-        Zoom:
+        <div className={createAccount.avatareditor}>
+          <div className={styles.rotateicon} onClick={this.rotateRight} />
+          <AvatarEditor
+            ref={this.setEditorRef}
+            scale={parseFloat(this.state.scale)}
+            width={this.state.width}
+            height={this.state.height}
+            position={this.state.position}
+            onPositionChange={this.handlePositionChange}
+            rotate={parseFloat(this.state.rotate)}
+            borderRadius={this.state.borderRadius}
+            image={this.state.image}
+          />
+        </div>
+        <div className={createAccount.sliderbox}>
+          <input
+            name="scale"
+            type="range"
+            onChange={this.handleScale}
+            min={"1"}
+            max="3"
+            step="0.01"
+            defaultValue="1.2"
+          />
+        </div>
+        <div className={createAccount.blacktext}>
+          scroll to zoom - drag to move
+        </div>
+        <label for="newFile" className={createAccount.choosefile} onClick="">
+          choose another file
+        </label>
         <input
-          name="scale"
-          type="range"
-          onChange={this.handleScale}
-          min={"1"}
-          max="3"
-          step="0.01"
-          defaultValue="1.2"
+          hidden
+          name="newImage"
+          id="newFile"
+          accept=".jpg, .jpeg, .png, .gif"
+          type="file"
+          onChange={this.handleNewImage}
+          clasName={createAccount.fileinput}
         />
-        New File:
-        <input name="newImage" type="file" onChange={this.handleNewImage} />
-        <button onClick={this.rotateRight}>Rotate Right</button>
-        <div className={createAccount.flexer} />
+
         <div
-          tabIndex="2"
-          className={styles.iconbuttonbigcenter}
           onClick={this.props.nextStage}
+          className={[styles.iconbuttonbig, createAccount.nextbutton].join(" ")}
         >
           <div
             className={styles.nextblueicon}

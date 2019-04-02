@@ -18,6 +18,24 @@
   justify-content: space-between;
 }
 
+.itemcontainer {
+  background-color: white;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 19px;
+  color: #333333;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 0px 10px 4px 10px;
+  min-height: 121px;
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: auto auto;
+  grid-gap: 0px;
+  padding: 29px;
+}
+
 .replies {
   composes: smallBold from "./styles.module.css";
   text-align: right;
@@ -107,14 +125,17 @@
   composes: mainTitle4 from "./styles.module.css";
   color: var(--sc-yellow);
 }
+
 .description {
   color: var(--sc-grey4);
-  font-weight: 200;
-  font-family: Montserrat, sans-serif;
-  font-weight: 200;
+  composes: bodyDefault from "./styles.module.css";
   font-size: 22px;
-  letter-spacing: 0;
   line-height: 30px;
+}
+
+.descriptionsmall {
+  color: var(--sc-grey4);
+  composes: bodyDefault from "./styles.module.css";
 }
 
 .filterbox {

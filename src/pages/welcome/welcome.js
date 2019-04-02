@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../../styles.module.css";
 import welcome from "../../welcome.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -27,5 +26,3 @@ const Welcome = () => (
   </div>
 );
 export default Welcome;
-
-//export default Welcome;

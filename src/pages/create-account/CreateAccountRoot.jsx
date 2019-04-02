@@ -4,34 +4,33 @@ import createAccountHelper from "helpers/createAccountHelper";
 import defaultAvatar from "images/defaultAvatar.png";
 
 // Sub-pages
-import CreateOrRestore from "./pages/CreateOrRestore";
-import ChooseUsername from "./pages/ChooseUsername";
-import ChooseAvatar from "./pages/ChooseAvatar";
-import StopCreation from "./pages/StopCreation";
-import PasswordWarning from "./pages/PasswordWarning";
-import ChoosePassword from "./pages/ChoosePassword";
 import BackupWarning from "./pages/BackupWarning";
-import MakeBackup from "./pages/MakeBackup";
-import SuccessEnter from "./pages/SuccessEnter";
+import ChooseAvatar from "./pages/ChooseAvatar";
+import ChoosePassword from "./pages/ChoosePassword";
+import ChooseUsername from "./pages/ChooseUsername";
+import CreateOrRestore from "./pages/CreateOrRestore";
 import ErrorAccount from "./pages/ErrorAccount";
+import MakeBackup from "./pages/MakeBackup";
+import PasswordWarning from "./pages/PasswordWarning";
 import ProcessAccount from "./pages/ProcessAccount";
+import StopCreation from "./pages/StopCreation";
+import SuccessEnter from "./pages/SuccessEnter";
 
 // Ids
-const createOrRestoreId = "createOrRestoreId";
-const chooseAvatarId = "chooseAvatarId";
-const chooseUsernameId = "chooseUsernameId";
-const stopCreationId = "stopCreationId";
-const passwordWarningId = "passwordWarningId";
-const choosePasswordId = "choosePasswordId";
 const backupWarningId = "backupWarningId";
-const unlockAccountId = "unlockAccountId";
-const makeBackupId = "makeBackupId";
-const successEnterId = "successEnterId";
+const chooseAvatarId = "chooseAvatarId";
+const choosePasswordId = "choosePasswordId";
+const chooseUsernameId = "chooseUsernameId";
+const createOrRestoreId = "createOrRestoreId";
 const errorAccountId = "errorAccountId";
+const makeBackupId = "makeBackupId";
+const passwordWarningId = "passwordWarningId";
 const processAccountId = "processAccountId";
+const stopCreationId = "stopCreationId";
+const successEnterId = "successEnterId";
 
 function CreateAccountRoot() {
-  const [stage, setStage] = useState(chooseUsernameId);
+  const [stage, setStage] = useState(chooseAvatarId);
 
   // User Creation state
   const [username, setUsername] = useState("");
@@ -102,7 +101,6 @@ function CreateAccountRoot() {
         <BackupWarning
           nextStage={() => setStage(backupWarningId)}
           exitStage={() => setStage(stopCreationId)}
-          unlockStage={() => setStage(unlockAccountId)}
         />
       );
     case makeBackupId:

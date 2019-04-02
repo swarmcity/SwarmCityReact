@@ -1,19 +1,20 @@
 import React from "react";
-import styles from "../../styles.module.css";
-import hashtaglist from "../../hashtag-list.module.css";
 import MyInfo from "../../components/my-info.js";
-import ScIcon from "../../components/sc-icon.js";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
-// Selectors
-import { getHashtagListOnlyShown } from "../../services/hashtagList/selectors";
-
 import HashtagListItem from "./hashtagListItem.js";
 import { Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-class HashtagListRouter extends React.Component {
+// Styles
+import styles from "../../styles.module.css";
+import hashtaglist from "../../hashtag-list.module.css";
+
+// Selectors
+import { getHashtagListOnlyShown } from "../../services/hashtagList/selectors";
+
+class HashtagListRoot extends React.Component {
   render() {
     return (
       <div className={hashtaglist.container}>
@@ -44,7 +45,7 @@ class HashtagListRouter extends React.Component {
   }
 }
 
-HashtagListRouter.propTypes = {
+HashtagListRoot.propTypes = {
   hashtag: PropTypes.array.isRequired
 };
 
@@ -59,4 +60,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HashtagListRouter);
+)(HashtagListRoot);

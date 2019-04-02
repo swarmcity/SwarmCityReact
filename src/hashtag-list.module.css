@@ -40,6 +40,9 @@
 .hashtaglistname {
   composes: mainTitle2 from "./styles.module.css";
   color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .completed {

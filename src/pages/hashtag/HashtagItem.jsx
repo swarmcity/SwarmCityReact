@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../../hashtag.module.css";
 import UserAvatar from "react-user-avatar";
 import { NavLink } from "react-router-dom";
-import "./hashtagItem.css";
 
 export default class HashtagItem extends React.Component {
   componentWillMount() {}
@@ -16,14 +15,16 @@ export default class HashtagItem extends React.Component {
           this.props.item.itemId
         }
       >
-        <div className="item-container">
+        <div className={styles.itemcontainer}>
           <div>
-            <div className="description">{this.props.item.description}</div>
+            <div className={styles.descriptionsmall}>
+              {this.props.item.description}
+            </div>
             <div className={styles.timestampsmall}>
               {this.props.item.timestamp}
             </div>
           </div>
-          <div className="replies">X 1</div>
+          <div className={styles.replies}>X 1</div>
           <div className={styles.avatar}>
             <UserAvatar
               size="24"

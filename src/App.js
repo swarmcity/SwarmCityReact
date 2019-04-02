@@ -1,7 +1,8 @@
+// Imports
 import React, { Component } from "react";
-import styles from "./styles.module.css";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+// Subpages
 import Welcome from "./pages/welcome/welcome";
 import ItemDetailRoot from "./pages/item-detail/itemDetailRoot";
 import HashtagListRoot from "./pages/hashtag-list/hashtagListRoot";
@@ -10,6 +11,9 @@ import NewItemRoot from "./pages/new-item/NewItemRoot";
 import CreateAccountRoot from "./pages/create-account/CreateAccountRoot";
 import MyWalletRoot from "./pages/my-wallet/MyWalletRoot";
 import MyProfileRoot from "./pages/my-profile/MyProfileRoot";
+
+// Styles
+import styles from "./styles.module.css";
 
 export default class App extends Component {
   render() {
