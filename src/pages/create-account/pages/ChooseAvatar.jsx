@@ -65,7 +65,7 @@ export default class ChooseAvatar extends React.Component {
       const canvas = this.editor.getImage();
 
       // If you want the image resized to the canvas size (also a HTMLCanvasElement)
-      const canvasScaled = this.editor.getImageScaledToCanvas();
+      // const canvasScaled = this.editor.getImageScaledToCanvas();
       this.props.setAvatar(canvas.toDataURL("image/jpeg", 0.82));
     }
   };
@@ -113,17 +113,22 @@ export default class ChooseAvatar extends React.Component {
           accept=".jpg, .jpeg, .png, .gif"
           type="file"
           onChange={this.handleNewImage}
-          clasName={createAccount.fileinput}
+          className={createAccount.fileinput}
         />
 
-        <div
-          onClick={this.props.nextStage}
-          className={[styles.iconbuttonbig, createAccount.nextbutton].join(" ")}
-        >
+        <div className={createAccount.dialogiconbox}>
           <div
-            className={styles.nextblueicon}
+            onClick={this.props.nextStage}
+            className={[styles.iconbuttonbig, createAccount.cancel].join(" ")}
+          >
+            <div className={styles.xmarkicon} />
+          </div>
+          <div
+            className={[styles.iconbuttonbig, createAccount.confirm].join(" ")}
             onClick={this.onClickSave.bind(this)}
-          />
+          >
+            <div className={styles.vmarkicon} />
+          </div>
         </div>
       </div>
     );

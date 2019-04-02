@@ -14,6 +14,9 @@ const SuccessEnter = ({}) => (
       to your SWT balance.
     </div>
 
+    <div className={createAccount.passwordflex} />
+    <div className={createAccount.passwordflex} />
+
     <NavLink to="/hashtag-list">
       <div tabIndex="2" className={createAccount.buttongray}>
         <div>

@@ -15,7 +15,7 @@ const ChoosePassword = ({
     </div>
     <div className={createAccountStyles.formtitle}>Choose a password.</div>
     <div className={createAccountStyles.passwordflex} />
-    <div className={createAccountStyles.passwordflex} />
+    <div className={createAccountStyles.flexer} />
 
     <div className={createAccountStyles.usernameinputbox}>
       <input
@@ -26,18 +26,15 @@ const ChoosePassword = ({
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-    </div>
-    <div className={createAccountStyles.flexer} />
-    <div className={createAccountStyles.flexer} />
+      <div className={createAccountStyles.flexer} />
 
-    <div className={createAccountStyles.usernameinputbox}>
       <input
         type="password"
         className={createAccountStyles.usernameinput}
         placeholder="Confirm password"
       />
     </div>
-    <div className={createAccountStyles.passwordflex} />
+    <div className={createAccountStyles.flexer} />
 
     <div
       tabIndex="2"

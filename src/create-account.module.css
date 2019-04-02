@@ -4,7 +4,7 @@
   flex-direction: column;
   place-items: center flex-start;
   justify-items: stretch;
-  padding: 137px 40px;
+  padding: 137px 40px 20px 40px;
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -20,7 +20,6 @@
 }
 
 .formcontainer {
-  margin-top: -50px;
   composes: container;
   composes: backgroundImg from "./styles.module.css" !important;
 }
@@ -50,7 +49,6 @@
   composes: mainTitle1 from "./styles.module.css";
   color: var(--sc-grey3b);
   text-align: center;
-  padding-bottom: 5vh;
 }
 
 .formsubtitle {
@@ -94,8 +92,8 @@
   padding: 54px 35px 40px 35px;
   background-color: white;
   max-width: 450px;
-  margin-bottom: 8vh;
   line-height: 20px;
+  margin-bottom: 20px;
 }
 
 .placeholder {
@@ -105,6 +103,7 @@
   background-repeat: no-repeat;
   height: 90px;
   width: 90px;
+  margin-top: 30px;
 }
 
 .avatarImage {
@@ -146,7 +145,7 @@
   cursor: pointer;
   max-height: 82px;
   background-color: rgba(255, 255, 255, 0.7);
-  margin-top: 60px;
+  margin-bottom: 10px;
 }
 
 .buttontextblue {
@@ -187,6 +186,7 @@
   display: flex;
   flex-direction: column;
   place-items: flex-end center;
+  margin-top: -50px;
 }
 
 .usernameinputbox {
@@ -215,7 +215,7 @@
   margin-bottom: 20px;
 }
 
-*/ .flexer {
+.flexer {
   margin: 10px;
 }
 
@@ -224,6 +224,7 @@
   flex-direction: row;
   justify-content: center;
   width: 75vw;
+  margin-top: 20px;
 }
 
 .confirm {
@@ -250,8 +251,8 @@
   border-bottom: 2px dotted var(--sc-blue);
 }
 
-.nextbutton {
-  margin-top: 30px;
+.nextbuttonbox {
+  margin-top: 60px;
 }
 
 .fileinput {
