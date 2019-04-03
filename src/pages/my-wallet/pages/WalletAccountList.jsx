@@ -11,7 +11,7 @@ const WalletAccountList = ({ mainnetStage, bridgedStage }) => (
     <div className={hashtaglist.hashtaglistitem} onClick={bridgedStage}>
       <div className={hashtaglist.itemcontent}>
         <div className={hashtaglist.hashtaglistname}>
-          <span className={styles.yellow}>123.00 SWT</span>
+          <span className={styles.yellow}>123.00 SWTKVN</span>
         </div>
         <div className={styles.nextgreysmallicon} />
       </div>

@@ -4,7 +4,6 @@ import { createStructuredSelector } from "reselect";
 import styles from "../../styles.module.css";
 import hashtagstyles from "../../hashtag.module.css";
 import MyInfo from "../../components/my-info.js";
-import ScIcon from "../../components/sc-icon.js";
 import { NavLink } from "react-router-dom";
 // Selectors
 import { getItemsByHashtag } from "../../services/hashtags/selectors";
@@ -63,7 +62,14 @@ class HashtagRoot extends React.Component {
               <div className={styles.backicon} />
             </NavLink>
           </div>
-          <div className={hashtagstyles.hashtagname}>#GetSWT</div>
+          <div
+            className={hashtagstyles.hashtagname}
+            onClick={() => {
+              window.scroll(0, 0);
+            }}
+          >
+            #GetSWT
+          </div>
           <div className={hashtagstyles.filterbox}>filter requests</div>
         </div>
 

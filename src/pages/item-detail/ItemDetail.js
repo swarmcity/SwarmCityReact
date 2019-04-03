@@ -5,7 +5,9 @@ import styles from "../../styles.module.css";
 import hashtag from "../../hashtag.module.css";
 
 export default class ItemDetail extends React.Component {
-  componentWillMount() {}
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
   render() {
     return (
       <NavLink

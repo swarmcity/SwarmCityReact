@@ -30,7 +30,7 @@ const stopCreationId = "stopCreationId";
 const successEnterId = "successEnterId";
 
 function CreateAccountRoot() {
-  const [stage, setStage] = useState(successEnterId);
+  const [stage, setStage] = useState(createOrRestoreId);
 
   // User Creation state
   const [username, setUsername] = useState("");
