@@ -228,7 +228,7 @@ code {
   color: #333333;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin: 0px 10px 4px 10px;
+  margin: 0px 10px 0px 10px;
   min-height: 121px;
   padding: 29px;
   display: grid;

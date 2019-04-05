@@ -1,6 +1,5 @@
 import React from "react";
 import UserAvatar from "react-user-avatar";
-import { NavLink } from "react-router-dom";
 import styles from "../../styles.module.css";
 import hashtag from "../../hashtag.module.css";
 
@@ -10,14 +9,7 @@ export default class ItemDetail extends React.Component {
   }
   render() {
     return (
-      <NavLink
-        to={
-          "/item-detail/" +
-          this.props.item.hashtagAddress +
-          "/" +
-          this.props.item.itemId
-        }
-      >
+      <div>
         <div
           className={hashtag.closeitem}
           onClick={() => window.history.back()}
@@ -47,7 +39,7 @@ export default class ItemDetail extends React.Component {
             <div className={hashtag.value}>{this.props.item.amount}</div>
           </div>
         </div>
-      </NavLink>
+      </div>
     );
   }
 }

@@ -1,9 +1,11 @@
 // Imports
 import React from "react";
+import PropTypes from "prop-types";
+import itemdetailstyles from "../../item-detail.module.css";
+import styles from "../../styles.module.css";
 import MyInfo from "../../components/my-info.js";
 import ItemDetail from "./ItemDetail.js";
-import itemdetailstyles from "../../item-detail.module.css";
-import PropTypes from "prop-types";
+import ItemReply from "./ItemReply.js";
 
 const item = {
   description: "Another SWT giveaway to first NEW USER to see this!!",
@@ -15,16 +17,21 @@ const item = {
   hashtagAddress: "0xjac",
   itemId: "0xabc"
 };
+
 export default class ItemDetailRoot extends React.Component {
   render() {
     return (
       <div className={itemdetailstyles.container}>
         <div className={itemdetailstyles.topcontainer}>
-          <MyInfo />
+          <div className={itemdetailstyles.toprow}>
+            <MyInfo />
+            <div className={styles.backicon} />
+          </div>
           <div className={itemdetailstyles.hashtagname}>#GetSWT</div>
         </div>
         <ItemDetail item={item} />
-        {/* here the replies */}
+        <ItemReply item={item} />
+        <ItemReply item={item} />
       </div>
     );
   }

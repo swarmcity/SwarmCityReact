@@ -27,13 +27,54 @@
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin: 0px 10px 4px 10px;
+  margin: 0px 10px px 10px;
   min-height: 121px;
   display: grid;
   grid-template-columns: auto min-content;
   grid-template-rows: auto auto;
   grid-gap: 0px;
   padding: 29px;
+}
+
+.reply {
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 40px 40px 20px 40px;
+  background-color: white;
+  margin: 0px 10px 0px 10px;
+}
+
+.reply .valuebox {
+  align-self: flex-start;
+  justify-self: end;
+}
+
+.reply {
+  composes: bodyDefault from "./styles.module.css";
+  font-weight: 300;
+  line-height: 22px;
+  color: #333333;
+}
+
+.reply > .toprow {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+  width: 75vw;
+}
+
+.reply .currency {
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.reply .value {
+  color: #333333;
+  font-size: 18px;
+  box-sizing: border-box;
+  margin-top: 0px;
 }
 
 .replies {
