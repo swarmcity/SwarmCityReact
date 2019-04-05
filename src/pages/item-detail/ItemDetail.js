@@ -10,12 +10,6 @@ export default class ItemDetail extends React.Component {
   render() {
     return (
       <div>
-        <div
-          className={hashtag.closeitem}
-          onClick={() => window.history.back()}
-        >
-          <div className={styles.exitgrayicon} />
-        </div>
         <div className={styles.item}>
           <div>
             <div className={hashtag.description}>

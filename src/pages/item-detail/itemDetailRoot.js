@@ -25,12 +25,16 @@ export default class ItemDetailRoot extends React.Component {
         <div className={itemdetailstyles.topcontainer}>
           <div className={itemdetailstyles.toprow}>
             <MyInfo />
-            <div className={styles.backicon} />
+            <div
+              className={styles.exitgrayicon}
+              onClick={() => {
+                window.history.back();
+              }}
+            />
           </div>
           <div className={itemdetailstyles.hashtagname}>#GetSWT</div>
         </div>
         <ItemDetail item={item} />
-        <ItemReply item={item} />
         <ItemReply item={item} />
       </div>
     );
