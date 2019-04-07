@@ -24,7 +24,9 @@ export default class HashtagItem extends React.Component {
               {this.props.item.timestamp}
             </div>
           </div>
-          <div className={styles.replies}>X 1</div>
+          <div className={styles.replies}>
+            0 <div className={styles.replygrey4mini} />
+          </div>
           <div className={styles.avatar}>
             <UserAvatar
               size="24"

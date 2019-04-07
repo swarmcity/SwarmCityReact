@@ -1,7 +1,7 @@
 // Imports
 import React, { useState } from "react";
 import createAccountHelper from "helpers/createAccountHelper";
-import defaultAvatar from "../../images/defaultAvatar.png";
+import defaultAvatar from "images/defaultAvatar.png";
 
 // Sub-pages
 import BackupWarning from "./pages/BackupWarning";

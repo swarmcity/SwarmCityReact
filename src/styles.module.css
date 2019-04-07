@@ -391,12 +391,20 @@ code {
   height: 36px;
 }
 
+.replyblueicon {
+  background-position: -108px -0px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  width: 54px;
+  height: 54px;
+}
+
 .exiticonblue {
   background-position: -270px -72px;
   background-image: url("./images/SwarmCity-Sprite-doublesize.png");
   background-repeat: no-repeat;
   background-size: 324px 324px;
-  background-position: -270px -72px;
   width: 36px;
   height: 36px;
 }

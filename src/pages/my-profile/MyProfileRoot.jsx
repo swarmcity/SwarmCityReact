@@ -23,9 +23,7 @@ const makeBackupId = "makeBackupId";
 const successEnterId = "successEnterId";
 
 function MyProfileRoot() {
-  const [stage, setStage] = useState(createOrRestoreId);
-
-  return <h1>MY PROFILE</h1>;
+  const [stage, setStage] = useState(chooseUsernameId);
 
   switch (stage) {
     case createOrRestoreId:

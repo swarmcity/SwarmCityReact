@@ -9,6 +9,9 @@ const web3 = new Web3(
   "wss://kovan.infura.io/ws/v3/ca70f20892694c5da631eecc4992f7ce"
 );
 
+// xDAI
+// const web3 = new Web3("wss://blockscout.com/poa/dai/socket/websocket");
+
 function* fetchHashtagList() {
   try {
     yield put({

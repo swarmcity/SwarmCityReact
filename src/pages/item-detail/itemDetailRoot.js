@@ -19,9 +19,21 @@ const item = {
 };
 
 export default class ItemDetailRoot extends React.Component {
+  doReply() {
+    alert("reply");
+  }
+
   render() {
     return (
       <div className={itemdetailstyles.container}>
+        <div
+          onClick={this.doReply.bind(this)}
+          className={[styles.iconbuttonbig, itemdetailstyles.replybutton].join(
+            " "
+          )}
+        >
+          <div className={styles.replyblueicon} />
+        </div>
         <div className={itemdetailstyles.topcontainer}>
           <div className={itemdetailstyles.toprow}>
             <MyInfo />
