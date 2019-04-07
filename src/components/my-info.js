@@ -16,13 +16,15 @@ class MyInfo extends React.Component {
     if (this.props.username) {
       return (
         <div className={styles.myinfobox}>
-          <div className={styles.avatar}>
-            <UserAvatar
-              size="40"
-              name={this.props.username || "no-name"}
-              src={this.props.avatar || ""}
-            />
-          </div>
+          <NavLink to="/my-profile">
+            <div className={styles.avatar}>
+              <UserAvatar
+                size="40"
+                name={this.props.username || "no-name"}
+                src={this.props.avatar || ""}
+              />
+            </div>
+          </NavLink>
           <div className={styles.accountbox}>
             <NavLink to="/my-profile">
               <div className={styles.usernamesmall}>{this.props.username}</div>

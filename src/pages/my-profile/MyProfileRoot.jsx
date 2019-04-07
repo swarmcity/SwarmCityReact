@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import defaultAvatar from "images/defaultAvatar.png";
 
 // Sub-pages
-import CreateOrRestore from "./pages/CreateOrRestore";
-import ChooseUsername from "./pages/ChooseUsername";
+import MyIdentity from "./pages/MyIdentity";
 import ChooseAvatar from "./pages/ChooseAvatar";
 import StopCreation from "./pages/StopCreation";
 import PasswordWarning from "./pages/PasswordWarning";
@@ -11,7 +11,7 @@ import BackupWarning from "./pages/BackupWarning";
 import MakeBackup from "./pages/MakeBackup";
 import SuccessEnter from "./pages/SuccessEnter";
 
-const createOrRestoreId = "createOrRestoreId";
+const myIdentityId = "myIdentityId";
 const chooseAvatarId = "chooseAvatarId";
 const chooseUsernameId = "chooseUsernameId";
 const stopCreationId = "stopCreationId";
@@ -23,26 +23,30 @@ const makeBackupId = "makeBackupId";
 const successEnterId = "successEnterId";
 
 function MyProfileRoot() {
-  const [stage, setStage] = useState(chooseUsernameId);
+  const [stage, setStage] = useState(myIdentityId);
+  const [username, setUsername] = useState("");
+  const [avatar, setAvatar] = useState(defaultAvatar);
 
   switch (stage) {
-    case createOrRestoreId:
+    case myIdentityId:
       return (
-        <CreateOrRestore
+        <MyIdentity
           nextStage={() => setStage(chooseUsernameId)}
-          exitStage={() => setStage(stopCreationId)}
-        />
-      );
-    case chooseUsernameId:
-      return (
-        <ChooseUsername
+          exitStage={() => window.history.back()}
           avatarStage={() => setStage(chooseAvatarId)}
-          nextStage={() => setStage(passwordWarningId)}
-          exitStage={() => setStage(stopCreationId)}
+          avatar={avatar}
+          setUsername={setUsername}
+          username={username}
         />
       );
+
     case chooseAvatarId:
-      return <ChooseAvatar nextStage={() => setStage(chooseUsernameId)} />;
+      return (
+        <ChooseAvatar
+          nextStage={() => setStage(myIdentityId)}
+          setAvatar={setAvatar}
+        />
+      );
     case stopCreationId:
       return <StopCreation nextStage={() => setStage(stopCreationId)} />;
     case passwordWarningId:

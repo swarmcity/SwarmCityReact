@@ -4,7 +4,9 @@ import newitem from "new-item.module.css";
 import MyInfo from "components/my-info.js";
 
 export default class NewItemEdit extends React.Component {
-  componentWillMount() {}
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
   render() {
     return (
       <div className={newitem.container}>
@@ -24,7 +26,7 @@ export default class NewItemEdit extends React.Component {
           <div>
             <div className={newitem.userinputbox}>
               <label
-                for="itemdescription"
+                htmlFor="itemdescription"
                 className={newitem.usernameinputlabel}
               >
                 What are you looking for?
