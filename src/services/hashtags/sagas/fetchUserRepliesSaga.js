@@ -1,4 +1,5 @@
 import { put, call, select } from "redux-saga/effects";
+import web3Utils from "web3-utils";
 import fetchHashtagUserReplies from "../fetchFunctions/fetchHashtagUserReplies";
 import * as a from "../actions";
 // Utilities
@@ -16,7 +17,7 @@ export default function* fetchUserRepliesSaga({
       { hashtagContract: {}, hashtagAddress: "0x" }
     );
     const userAddress = yield select(getUserAddress);
-    if (!userAddress) return;
+    if (!userAddress || !web3Utils.isAddress(userAddress)) return;
 
     const userReplies = yield call(fetchHashtagUserReplies, {
       userAddress,

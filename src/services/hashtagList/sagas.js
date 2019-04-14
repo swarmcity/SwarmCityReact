@@ -1,25 +1,25 @@
-import { put, call, fork } from "redux-saga/effects";
+import { put, call, select, takeEvery } from "redux-saga/effects";
 import * as a from "./actions";
+import * as t from "./actionTypes";
+// Fetch functions
 import getHashtagList from "./fetchFunctions/getHashtagList";
-import Web3 from "web3";
+// Selectors
+import { getWeb3Instance } from "services/providers/selectors";
 
 // Service > hashtagList
-
-const web3 = new Web3(
-  "wss://kovan.infura.io/ws/v3/ca70f20892694c5da631eecc4992f7ce"
-);
 
 // xDAI
 // const web3 = new Web3("wss://blockscout.com/poa/dai/socket/websocket");
 
-function* fetchHashtagList() {
+function* fetchHashtagList({ address }) {
   try {
+    const web3 = yield select(getWeb3Instance);
     yield put({
       type: "UPDATE_FETCHING",
       topic: "hashtagList",
       fetching: true
     });
-    const hashtagList = yield call(getHashtagList, { web3 });
+    const hashtagList = yield call(getHashtagList, { address, web3 });
     yield put({
       type: "UPDATE_FETCHING",
       topic: "hashtagList",
@@ -45,5 +45,5 @@ function* fetchHashtagList() {
 /******************************* Watchers *************************************/
 
 export default function*() {
-  yield fork(fetchHashtagList);
+  yield takeEvery(t.FETCH_HASHTAG_LIST, fetchHashtagList);
 }

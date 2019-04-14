@@ -6,9 +6,22 @@ export const getHashtags = createSelector(
   hashtags => hashtags
 );
 
-export const getItemsByHashtag = createSelector(
-  (state, ownProps) => ((ownProps.match || {}).params || {}).hashtagAddress,
+export const getHashtagByHashtagAddress = createSelector(
   getHashtags,
-  (hashtagAddress, hashtags) =>
+  (_, hashtagAddress) => hashtagAddress,
+  (hashtags, hashtagAddress) => hashtags[hashtagAddress]
+);
+
+export const getItemsByHashtagAddress = createSelector(
+  getHashtags,
+  (_, hashtagAddress) => hashtagAddress,
+  (hashtags, hashtagAddress) =>
     Object.values((hashtags[hashtagAddress] || {}).items || {})
+);
+
+export const getItemByHashtagAddressAndItemId = createSelector(
+  getHashtags,
+  (_, hashtagAddress, itemId) => [hashtagAddress, itemId],
+  (hashtags, [hashtagAddress, itemId]) =>
+    ((hashtags[hashtagAddress] || {}).items || {})[itemId]
 );

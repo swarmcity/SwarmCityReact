@@ -1,7 +1,7 @@
 import { call, put, fork } from "redux-saga/effects";
-import { fetchHashtag } from "services/hashtags/actions";
 import CID from "cids";
 import Web3 from "web3";
+import { fetchHashtagList } from "services/hashtagList/actions";
 
 // Service > web3
 
@@ -20,7 +20,7 @@ function setIpfsInstance(url) {
   if (!url.includes("://")) throw Error("Url must include ://");
   const ipfs = {};
   ipfs.cat = bytes32 =>
-    fetch(`${url}/api/v0/cat?arg=${bytes32ToHash(bytes32)}`).then(res =>
+    fetch(`https://ipfs.io/ipfs/${bytes32ToHash(bytes32)}`).then(res =>
       res.json()
     );
   window[mountPoint].ipfs = ipfs;
@@ -45,13 +45,12 @@ function bytes32ToHash(bytes32) {
 
 function* testInitialSaga() {
   try {
-    const hashtagAddress = "0x59327811AB97B9d56815b9934461d134c78Dd79A";
-    yield call(
-      setWeb3Instance,
-      "wss://kovan.infura.io/ws/v3/ca70f20892694c5da631eecc4992f7ce"
-    );
+    yield call(setWeb3Instance, "http://178.128.37.125:8545");
     yield call(setIpfsInstance, "https://ipfs.infura.io");
-    yield put(fetchHashtag({ hashtagAddress }));
+
+    // ###### DEV
+    const hashtagList = "0xEeFC157258C79868f67ED2A9E3C1FE088dCe1702";
+    yield put(fetchHashtagList(hashtagList));
   } catch (e) {
     console.error(`Error on setInitialWeb3Instance: ${e.stack}`);
   }

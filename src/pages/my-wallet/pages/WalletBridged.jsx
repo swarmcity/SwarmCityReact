@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "styles.module.css";
 import mywallet from "my-wallet.module.css";
-import ScIcon from "components/sc-icon.js";
-import MyWalletLog from "../components/MyWalletLog.js";
-import MyWalletTransfer from "../components/MyWalletTransfer.js";
+import MyWalletLog from "../components/MyWalletLog";
+import MyWalletTransfer from "../components/MyWalletTransfer";
 
 const WalletBridged = ({ toBackStage, toConfirmStage }) => (
   <div>

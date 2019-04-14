@@ -1,4 +1,4 @@
-import { fork, takeEvery } from "redux-saga/effects";
+import { takeEvery } from "redux-saga/effects";
 import * as t from "./actionTypes";
 // Sagas
 import fetchHashtagSaga from "./sagas/fetchHashtagSaga";

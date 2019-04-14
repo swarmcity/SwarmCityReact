@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "styles.module.css";
 import createAccountStyles from "create-account.module.css";
-import ScIcon from "components/sc-icon.js";
+import ScIcon from "components/sc-icon";
 
 const ChoosePassword = ({
   createAccount,

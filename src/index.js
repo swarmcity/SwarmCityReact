@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 // Not needed, history.js specifies the use of Hash.
 import { HashRouter as Router } from "react-router-dom";
 // Redux imports
-import history from "./history";
 import store from "./store";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -14,7 +13,7 @@ import "./index.css";
 
 render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router>
       <App />
     </Router>
   </Provider>,

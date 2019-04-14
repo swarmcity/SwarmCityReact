@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "styles.module.css";
 import newitem from "new-item.module.css";
-import MyInfo from "components/my-info.js";
+import MyInfo from "components/my-info";
 
 export default class NewItemEdit extends React.Component {
   componentDidMount() {

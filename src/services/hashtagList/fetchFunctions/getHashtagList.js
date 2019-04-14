@@ -1,33 +1,40 @@
-import { hashtagDir } from "contracts/contractsData";
-import getHashtagTotalReputation from "./getHashtagTotalReputation";
+import hashtagListAbi from "contracts/hashtagListAbi.json";
+import hashtagSimpleDealAbi from "contracts/hashtagSimpleDealAbi.json";
 /**
  * Gets hashtag list from the blockchain
  */
 
-export default async function getHashtagList({ web3 }) {
-  const hashtagDirContract = new web3.eth.Contract(
-    hashtagDir.abi,
-    hashtagDir.address
-  );
-  const numberOfHashtags = await hashtagDirContract.methods
-    .numberOfHashtags()
-    .call()
-    .then(res => parseInt(res));
-  // Note that: [...Array(5).keys()] = [1,2,3,4,5]
-  return await Promise.all(
-    [...Array(numberOfHashtags).keys()].map(async i => {
-      const hashtag = await hashtagDirContract.methods.readHashtag(i).call();
+// const hashtagStatuses = ["NonExistent", "Enabled", "Disabled"];
+
+export default async function getHashtagList({ address, web3 }) {
+  const hashtagDirContract = new web3.eth.Contract(hashtagListAbi, address);
+  const hashtagAddresses = await hashtagDirContract.methods
+    .getHashtags()
+    .call();
+
+  const hashtags = await Promise.all(
+    hashtagAddresses.map(async hashtagAddress => {
+      const status = await hashtagDirContract.methods
+        .hashtagsStatus(hashtagAddress)
+        .call();
+
+      if (status === 0 || status === 2) return null;
+
+      // Fetch hashtag info
+      const hashtag = new web3.eth.Contract(
+        hashtagSimpleDealAbi,
+        hashtagAddress
+      );
+      const name = await hashtag.methods.hashtagName().call();
+      const itemCount = await hashtag.methods.getItemCount().call();
 
       return {
-        name: decodeURI(hashtag.hashtagName), // string :  Settler
-        hashtagMetaIPFS: hashtag.hashtagMetaIPFS, // string :  zb2rhbixVsHPSfBCUowDPDpkQ4QZR84rRpBSDym44i57NWmtE
-        address: hashtag.hashtagAddress, // address :  0x3a1a67501b75fbc2d0784e91ea6cafef6455a066
-        hashtagShown: hashtag.hashtagShown, // bool :  false
-        hashtagReputation: await getHashtagTotalReputation(
-          hashtag.hashtagAddress,
-          { web3 }
-        )
+        name,
+        address: hashtagAddress,
+        hashtagShown: true,
+        hashtagReputation: parseInt(itemCount) * 5
       };
     })
   );
+  return hashtags.filter(x => x);
 }

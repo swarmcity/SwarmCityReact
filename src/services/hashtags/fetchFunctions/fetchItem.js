@@ -32,6 +32,7 @@ export default async function fetchItem({
   web3
 }) {
   const item = await hashtagContract.methods.getItem(itemId).call();
+
   const [metadata, timestamp] = await Promise.all([
     ipfs.cat(item._itemMetadataHash),
     fetchBlockTimestamp({ blockNumber: item._creationBlock, web3 })
@@ -54,6 +55,8 @@ export default async function fetchItem({
     seekerPublicKey: metadata.seekerPublicKey,
     seekerUsername: metadata.username,
     // From block timestamp
-    timestamp
+    timestamp,
+    // Append for internal ID
+    itemId
   };
 }

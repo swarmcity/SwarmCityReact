@@ -1,6 +1,6 @@
 import * as t from "./actionTypes";
 
-export const fetchHashtag = ({ hashtagAddress }) => ({
+export const fetchHashtag = hashtagAddress => ({
   type: t.FETCH_HASHTAG,
   hashtagAddress
 });

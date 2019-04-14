@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
 import newItem from "new-item.module.css";
-import ScIcon from "components/sc-icon.js";
-import { NavLink } from "react-router-dom";
 
 const SuccessItem = ({ nextStage, exitStage }) => (
   <div className={createAccount.containergreen}>
