@@ -1,17 +1,16 @@
 .container {
-  composes: backgroundImg from "./styles.module.css";
-  margin-top: 107px;
+  margin-top: 127px;
   min-height: 100vh;
 }
 
 .topcontainer {
+  background-color: var(--sc-dark);
   box-sizing: border-box;
-  composes: backgroundImg from "./styles.module.css";
   position: fixed;
   top: 0;
-  z-index: 33;
-  padding: 40px 40px 20px 40px;
-  height: 107px;
+  z-index: 1;
+  padding: 10px 40px 20px 40px;
+  height: 127px;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -33,13 +32,13 @@
 }
 
 .hashtaglistitem {
-  border-bottom: 1px solid var(--sc-grey1b);
+  /* border-bottom: 1px solid var(--sc-grey4); */
   padding-bottom: 20px;
 }
 
 .hashtaglistname {
   composes: mainTitle2 from "./styles.module.css";
-  color: black;
+  color: var(--sc-grey2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -53,8 +52,9 @@
 }
 
 .plusbutton {
-  position: fixed;
+  position: absolute;
   bottom: 50px;
   right: 30px;
   z-index: 55;
+  background-color: var(--sc-blue);
 }

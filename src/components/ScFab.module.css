@@ -1,0 +1,45 @@
+.container {
+  z-index: 55;
+  position: relative;
+}
+
+.iconbuttonbig {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  box-sizing: border-box;
+  background-color: var(--sc-blue);
+}
+
+.plusicon {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 54px;
+  height: 54px;
+  box-sizing: border-box;
+  background-image: url("images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -108px -270px;
+}
+
+.actionarea {
+  z-index: 65;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: var(--sc-yellow);
+}

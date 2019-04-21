@@ -13,10 +13,9 @@ export default class HashtagListItem extends React.Component {
             <div className={hashtaglist.hashtaglistname}>
               #{this.props.hashtagname}
             </div>
-            <div className={styles.nextgreysmallicon} />
           </div>
           <div className={hashtaglist.completed}>
-            {this.props.completed} deals completed
+            {this.props.completed}0 deals completed
           </div>
         </div>
       </NavLink>

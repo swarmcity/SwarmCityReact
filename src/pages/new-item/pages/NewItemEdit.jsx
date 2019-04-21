@@ -10,6 +10,12 @@ export default class NewItemEdit extends React.Component {
   render() {
     return (
       <div className={newitem.container}>
+        <div
+          className={[styles.iconbuttonbig, newitem.plusbutton].join(" ")}
+          onClick={this.props.nextStage}
+        >
+          <div className={styles.nextwhiteicon} />
+        </div>
         <div className={newitem.topcontainer}>
           <MyInfo />
           <div className={newitem.hashtagname}>#GetSWT</div>
@@ -54,13 +60,6 @@ export default class NewItemEdit extends React.Component {
           <div className={newitem.totalcost}>
             <div>Total Cost: </div>
             <div className={newitem.totalcostbold}>9.005 xDAI</div>
-          </div>
-
-          <div
-            className={newitem.iconbuttonbigblue}
-            onClick={this.props.nextStage}
-          >
-            <div className={styles.nextwhiteicon} />
           </div>
         </div>
       </div>

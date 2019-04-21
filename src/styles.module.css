@@ -7,8 +7,7 @@ a {
 
 :root {
   /* Global color */
-  background-color: #f2f2f2;
-
+  background-color: #1f1f1f;
   /* users can not select unless we explicity allow */
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
@@ -16,7 +15,6 @@ a {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-
   /*----------COLORS----------*/
   /* Primary tone */
   --sc-yellow: #efd96f;
@@ -24,7 +22,6 @@ a {
   /* Secondary tone */
   --sc-green: #7ad69c;
   --sc-red: #f55858;
-  --sc-grey4: #333333;
   /* Additional colors */
   --sc-white: #fafafa;
   --sc-grey1: #f2f2f2;
@@ -34,6 +31,8 @@ a {
   --sc-grey3b: #acacac;
   --sc-green2: #23b460;
   --sc-red2: #d0021b;
+  --sc-grey4: #333333;
+  --sc-dark: #1f1f1f;
 }
 
 /*----------TYPOGRAPHY----------*/
@@ -158,12 +157,13 @@ code {
 }
 
 .swarm-city {
-  composes: backgroundImg;
   width: 100vw;
   height: 100vh;
+  max-width: 600px;
   margin: 0;
   padding: 0;
   scroll-behavior: auto;
+  background-color: var(--sc-white);
 }
 
 .hashtagName {
@@ -256,11 +256,10 @@ code {
   flex-direction: row;
   align-items: center;
   box-sizing: border-box;
-  color: #333333;
 }
 
 .usernamesmall {
-  color: #333333;
+  color: var(--sc-white);
 }
 
 .accountbox {
@@ -339,6 +338,12 @@ code {
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
 } */
 
+.fab {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+
 .iconbuttonbig {
   z-index: 55;
   display: flex;
@@ -353,6 +358,7 @@ code {
   -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.5);
   background-color: white;
+  box-sizing: border-box;
 }
 
 .plusicon {
@@ -371,6 +377,26 @@ code {
   background-repeat: no-repeat;
   background-size: 324px 324px;
   background-position: -162px -0px;
+}
+
+.plusblueicon {
+  width: 54px;
+  height: 54px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -162px -0px;
+}
+
+.pluswhiteicon {
+  width: 54px;
+  height: 54px;
+  background-image: url("./images/SwarmCity-Sprite-doublesize.png");
+  background-repeat: no-repeat;
+  background-size: 324px 324px;
+  background-position: -54px -108px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
 }
 
 .nextblueicon {
@@ -473,6 +499,12 @@ code {
   background-size: 324px 324px;
   width: 54px;
   height: 54px;
+}
+
+.pagetitle {
+  composes: mainTitle4;
+  color: var(--sc-grey2);
+  padding: 0px 40px 20px 40px;
 }
 
 .nextgreysmallicon {
