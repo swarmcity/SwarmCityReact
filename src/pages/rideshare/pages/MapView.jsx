@@ -3,73 +3,63 @@ import styles from "styles.module.css";
 import rideshare from "ride-share.module.css";
 import ScMap from "components/sc-map.jsx";
 import MyInfo from "components/my-info.js";
+import { NavLink } from "react-router-dom";
+
 
 export default class MapView extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      lat: 0,
+      lng: 0,
+      zoom: 16
+    };
+  }
+
+  
+
   componentDidMount() {
     window.scroll(0, 0);
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        console.log(pos.coords);
+        console.log("this: ", this);
+        this.setState({lat: pos.coords.latitude});
+        this.setState({lng: pos.coords.longitude});
+        //lng = pos.coords.longitude;
+        //zoom = 16; 
+      });
+    } else {
+      //x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+    // get geolocation and set state
+
   }
   render() {
     return (
        
-      <div className={rideshare.container}>
-          
+        <div className={rideshare.container}>
         <div className={rideshare.topcontainer}>
-          <MyInfo />
-          <div className={rideshare.hashtagname}>#RideShare</div>
-        </div>
-        <div className={rideshare.addclose}>
+          <div className={rideshare.toprow}>
+            <MyInfo />
+            <NavLink to="/hashtag-list" className={styles.backicon} />
+          </div>
           <div
-            className={rideshare.closeitem}
-            onClick={() => window.history.back()}
-          >
-            <div className={styles.exitgrayicon} />
+            className={rideshare.hashtagname}>
+            #RideMadrid
           </div>
         </div>
         <div className={rideshare.map}>
-            <ScMap></ScMap>
-        </div>
-        <div className={styles.item}>
-          <div>
-            <div className={rideshare.userinputbox}>
-              <label
-                htmlFor="itemdescription"
-                className={rideshare.usernameinputlabel}
-              >
-                What are you looking for?
-              </label>
-
-              <div className={rideshare.usernameinputbox}>
-                <input
-                  id="itemdescription"
-                  className={rideshare.usernameinput}
-                  placeholder="What are you looking for?"
-                />
-              </div>
-            </div>
-            <div className={rideshare.valueinputbox}>
-              <input
-                className={rideshare.valueinput}
-                placeholder="What is your offer?"
-              />
-              <div className={rideshare.currency}>xDAI</div>
-            </div>
-            <div className={rideshare.hashtagfee}>+ 0.002 xDAI hashtagfee</div>
-          </div>
-        </div>
-        <div className={rideshare.infobox}>
-          <div className={rideshare.totalcost}>
-            <div>Total Cost: </div>
-            <div className={rideshare.totalcostbold}>9.005 xDAI</div>
-          </div>
-
-          <div
-            className={rideshare.iconbuttonbigblue}
-            onClick={this.props.nextStage}
-          >
-            <div className={styles.nextwhiteicon} />
-          </div>
-        </div>
-      </div>
+            <ScMap lat={this.state.lat} lng={this.state.lng} zoom={this.state.zoom}></ScMap>
+        </div> <NavLink
+        to="/new-item"
+        className={[styles.iconbuttonbig, rideshare.plusbutton].join(" ")}
+      >
+        <div className={styles.plusicon} />
+      </NavLink>
+    </div>
     );
   }
 }

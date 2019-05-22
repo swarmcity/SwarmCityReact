@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import rideShare from "../../ride-share.module.css";
 
 // Sub-pages
 import MapView from "./pages/MapView";

@@ -9,15 +9,12 @@ type State = {
 }
 
 export default class ScMap extends Component<{}, State> {
-  state = {
-    lat: 40.4563756,
-    lng: -3.64961,
-    zoom: 16,
-  }
+  
 
   render() {
-    const position = [this.state.lat, this.state.lng]
+    const position = [this.props.lat, this.props.lng]
     return (
+      <div>
       <Map 
         attributionControl={false}
 				zoomControl={false}
@@ -27,7 +24,7 @@ export default class ScMap extends Component<{}, State> {
 				animate={true}
                 easeLinearity={0.35}
                 center={position} 
-                zoom={this.state.zoom}>
+                zoom={this.props.zoom}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
@@ -38,6 +35,7 @@ export default class ScMap extends Component<{}, State> {
           </Popup>
         </Marker> */}
       </Map>
+      </div>
     )
   }
 }
