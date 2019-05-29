@@ -1,17 +1,17 @@
 import React from "react";
 import AvatarEditor from "react-avatar-editor";
-import defaultAvatar from "images/defaultAvatar.png";
 import styles from "styles.module.css";
 import createAccount from "create-account.module.css";
 import PropTypes from "prop-types";
 
 export default class ChooseAvatar extends React.Component {
   static propTypes = {
-    setAvatar: PropTypes.func.isRequired
+    setAvatar: PropTypes.func.isRequired,
+    avatar: PropTypes.string.isRequired,
   };
 
   state = {
-    image: defaultAvatar,
+    image: this.props.avatar,
     allowZoomOut: false,
     position: { x: 0.5, y: 0.5 },
     scale: 1.2,
@@ -67,6 +67,7 @@ export default class ChooseAvatar extends React.Component {
       // If you want the image resized to the canvas size (also a HTMLCanvasElement)
       // const canvasScaled = this.editor.getImageScaledToCanvas();
       this.props.setAvatar(canvas.toDataURL("image/jpeg", 0.82));
+      this.props.nextStage();
     }
   };
 
@@ -74,63 +75,63 @@ export default class ChooseAvatar extends React.Component {
 
   render() {
     return (
-      <div className={createAccount.formcontainer}>
-        <div className={createAccount.avatareditor}>
-          <div className={styles.rotateicon} onClick={this.rotateRight} />
-          <AvatarEditor
-            ref={this.setEditorRef}
-            scale={parseFloat(this.state.scale)}
-            width={this.state.width}
-            height={this.state.height}
-            position={this.state.position}
-            onPositionChange={this.handlePositionChange}
-            rotate={parseFloat(this.state.rotate)}
-            borderRadius={this.state.borderRadius}
-            image={this.state.image}
-          />
-        </div>
-        <div className={createAccount.sliderbox}>
+        <div className={createAccount.formcontainer}>
+          <div className={createAccount.avatareditor}>
+            <div className={styles.rotateicon} onClick={this.rotateRight} />
+            <AvatarEditor
+                ref={this.setEditorRef}
+                scale={parseFloat(this.state.scale)}
+                width={this.state.width}
+                height={this.state.height}
+                position={this.state.position}
+                onPositionChange={this.handlePositionChange}
+                rotate={parseFloat(this.state.rotate)}
+                borderRadius={this.state.borderRadius}
+                image={this.state.image}
+            />
+          </div>
+          <div className={createAccount.sliderbox}>
+            <input
+                name="scale"
+                type="range"
+                onChange={this.handleScale}
+                min={"1"}
+                max="3"
+                step="0.01"
+                defaultValue="1.2"
+            />
+          </div>
+          <div className={createAccount.blacktext}>
+            scroll to zoom - drag to move
+          </div>
+          <label for="newFile" className={createAccount.choosefile} onClick="">
+            choose another file
+          </label>
           <input
-            name="scale"
-            type="range"
-            onChange={this.handleScale}
-            min={"1"}
-            max="3"
-            step="0.01"
-            defaultValue="1.2"
+              hidden
+              name="newImage"
+              id="newFile"
+              accept=".jpg, .jpeg, .png, .gif"
+              type="file"
+              onChange={this.handleNewImage}
+              className={createAccount.fileinput}
           />
-        </div>
-        <div className={createAccount.blacktext}>
-          scroll to zoom - drag to move
-        </div>
-        <label for="newFile" className={createAccount.choosefile} onClick="">
-          choose another file
-        </label>
-        <input
-          hidden
-          name="newImage"
-          id="newFile"
-          accept=".jpg, .jpeg, .png, .gif"
-          type="file"
-          onChange={this.handleNewImage}
-          className={createAccount.fileinput}
-        />
 
-        <div className={createAccount.dialogiconbox}>
-          <div
-            onClick={this.props.nextStage}
-            className={[styles.iconbuttonbig, createAccount.cancel].join(" ")}
-          >
-            <div className={styles.xmarkicon} />
-          </div>
-          <div
-            className={[styles.iconbuttonbig, createAccount.confirm].join(" ")}
-            onClick={this.onClickSave.bind(this)}
-          >
-            <div className={styles.vmarkicon} />
+          <div className={createAccount.dialogiconbox}>
+            <div
+                onClick={this.props.nextStage}
+                className={[styles.iconbuttonbig, createAccount.cancel].join(" ")}
+            >
+              <div className={styles.xmarkicon} />
+            </div>
+            <div
+                className={[styles.iconbuttonbig, createAccount.confirm].join(" ")}
+                onClick={this.onClickSave.bind(this)}
+            >
+              <div className={styles.vmarkicon} />
+            </div>
           </div>
         </div>
-      </div>
     );
   }
 }
