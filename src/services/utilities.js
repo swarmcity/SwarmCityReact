@@ -1,5 +1,5 @@
 /**
- * Ease way to assert styles in an obj
+ * Easy way to assert styles in an obj
  * @param {Object} obj = { address: "0x12345" }
  * @param {Object} referenceTypes = { address: "0x" }
  * @param {String} id: to make errors more comprehensive
@@ -8,18 +8,18 @@ export function assertObjTypes(obj, referenceTypes, id = "Obj") {
   Object.getOwnPropertyNames(referenceTypes).forEach(key => {
     if (!sameType(obj[key], referenceTypes[key])) {
       throw Error(
-        `${id} prop ${key} must be like ${
-          referenceTypes[key]
-        } (${typeof referenceTypes[key]}), instead is: ${
-          obj[key]
-        } (${typeof obj[key]})`
+          `${id} prop ${key} must be like ${
+              referenceTypes[key]
+              } (${typeof referenceTypes[key]}), instead is: ${
+              obj[key]
+              } (${typeof obj[key]})`
       );
     }
   });
 }
 
 /**
- * Ease way to assert styles in a reducer
+ * Easy way to assert styles in a reducer
  *   case t.MY_ACTION:
  *     assertAction(action, { id: "someId", data: {} });
  *     return { ...state, [action.id]: action.data };
@@ -41,8 +41,8 @@ export function toLowercase(s) {
  */
 function sameType(a, b) {
   if (
-    (Array.isArray(a) && !Array.isArray(b)) ||
-    (Array.isArray(b) && !Array.isArray(a))
+      (Array.isArray(a) && !Array.isArray(b)) ||
+      (Array.isArray(b) && !Array.isArray(a))
   ) {
     return false;
   }
