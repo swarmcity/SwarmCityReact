@@ -21,7 +21,10 @@ export default function* handleReplyItemEvent(event) {
     const replyId = event.transactionHash;
     const { itemId, replier, replyMetadataHash } = event.returnValues;
     const timestamp = yield call(fetchBlockTimestamp, event.blockNumber);
-    const replyMetadata = yield call(ipfs.cat, replyMetadataHash);
+    const replyMetadata = yield call(
+      ipfs.catJSON,
+      ipfs.bytes32ToHash(replyMetadataHash)
+    );
     const data = {
       userReplied: userAddress === toLowercase(replier),
       replies: {
