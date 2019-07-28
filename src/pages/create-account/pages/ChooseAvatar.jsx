@@ -103,7 +103,11 @@ export default class ChooseAvatar extends React.Component {
         <div className={createAccount.blacktext}>
           scroll to zoom - drag to move
         </div>
-        <label for="newFile" className={createAccount.choosefile} onClick="">
+        <label
+          htmlFor="newFile"
+          className={createAccount.choosefile}
+          onClick=""
+        >
           choose another file
         </label>
         <input

@@ -1,7 +1,8 @@
 // Imports
 import React, { useState } from "react";
-import createAccountHelper from "helpers/createAccountHelper";
 import defaultAvatar from "images/defaultAvatar.png";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 // Sub-pages
 import BackupWarning from "./pages/BackupWarning";
@@ -16,6 +17,11 @@ import ProcessAccount from "./pages/ProcessAccount";
 import StopCreation from "./pages/StopCreation";
 import SuccessEnter from "./pages/SuccessEnter";
 
+// External
+import { createAccount } from "services/user/actions";
+import { getUserKeystore } from "services/user/selectors";
+import { createStructuredSelector } from "reselect";
+
 // Ids
 const backupWarningId = "backupWarningId";
 const chooseAvatarId = "chooseAvatarId";
@@ -29,7 +35,7 @@ const processAccountId = "processAccountId";
 const stopCreationId = "stopCreationId";
 const successEnterId = "successEnterId";
 
-function CreateAccountRoot() {
+function CreateAccountRoot({ keystore, createAccount }) {
   const [stage, setStage] = useState(createOrRestoreId);
 
   // User Creation state
@@ -39,11 +45,11 @@ function CreateAccountRoot() {
   const [error, setError] = useState("No error");
 
   // Methods
-  async function createAccount() {
-    console.log({ username, avatar, password });
+  async function onCreateAccount() {
+    console.log("Creating user", { username, avatar });
     setStage(processAccountId);
     try {
-      await createAccountHelper({ username, avatar, password });
+      createAccount({ username, avatar, password });
       setStage(makeBackupId);
     } catch (e) {
       setStage(errorAccountId);
@@ -90,7 +96,7 @@ function CreateAccountRoot() {
     case choosePasswordId:
       return (
         <ChoosePassword
-          createAccount={createAccount}
+          onCreateAccount={onCreateAccount}
           exitStage={() => setStage(stopCreationId)}
           setPassword={setPassword}
           password={password}
@@ -121,4 +127,19 @@ function CreateAccountRoot() {
   }
 }
 
-export default CreateAccountRoot;
+CreateAccountRoot.propTypes = {
+  createAccount: PropTypes.func.isRequired
+};
+
+const mapStateToProps = createStructuredSelector({
+  keystore: getUserKeystore
+});
+
+const mapDispatchToProps = {
+  createAccount
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateAccountRoot);

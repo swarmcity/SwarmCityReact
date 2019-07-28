@@ -2,6 +2,7 @@ import { call, put, fork } from "redux-saga/effects";
 import CID from "cids";
 import Web3 from "web3";
 import { fetchHashtagList } from "services/hashtagList/actions";
+import IPFS from "ipfs-http-client";
 
 // Service > web3
 
@@ -17,13 +18,29 @@ function setWeb3Instance(url) {
 }
 
 function setIpfsInstance(url) {
-  if (!url.includes("://")) throw Error("Url must include ://");
-  const ipfs = {};
-  ipfs.cat = bytes32 =>
-    fetch(`https://ipfs.io/ipfs/${bytes32ToHash(bytes32)}`).then(res =>
-      res.json()
-    );
-  window[mountPoint].ipfs = ipfs;
+  const ipfs = IPFS({
+    host: "ipfs.infura.io",
+    port: 5001,
+    protocol: "https"
+  });
+
+  // ### RAW USE OF API
+  // ipfs.cat = bytes32 =>
+  //   fetch(`https://ipfs.io/ipfs/${bytes32ToHash(bytes32)}`).then(res =>
+  //     res.json()
+  //   );
+
+  const add = content =>
+    ipfs.add(IPFS.Buffer.from(content)).then(res => res[0].hash);
+  const cat = hash => ipfs.cat(hash).then(file => file.toString("utf8"));
+
+  window[mountPoint].ipfs = {
+    bytes32ToHash,
+    cat,
+    add,
+    addJSON: obj => add(JSON.stringify(obj)),
+    catJSON: hash => ipfs.cat(hash).then(content => JSON.parse(content))
+  };
 }
 
 // Return base58 encoded ipfs hash from bytes32 hex string,
