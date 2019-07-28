@@ -75,6 +75,14 @@
   line-height: 14px;
 }
 
+.error {
+  composes: bodyBold from "./styles.module.css";
+  color: var(--sc-red);
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  line-height: 18px;
+}
+
 .showkeystoggle {
   composes: smallBold from "./styles.module.css";
   color: var(--sc-grey3);

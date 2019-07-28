@@ -16,9 +16,9 @@ const ChoosePassword = ({
     passwordConfirm &&
     passwordConfirm !== password.slice(0, passwordConfirm.length)
   )
-    errors.push("Passowrds do not match");
-  if (password && password.length < 8)
-    errors.push("Password must be longer than 8 characters");
+    errors.push("Passwords do not match");
+  if (password && password.length < 3)
+    errors.push("Password must be longer than 3 characters");
 
   return (
     <div className={createAccountStyles.formcontainer}>
@@ -49,7 +49,7 @@ const ChoosePassword = ({
         />
 
         {errors.map(error => (
-          <div key={error} style={{ color: "red" }}>
+          <div key={error} className={createAccountStyles.error}>
             {error}
           </div>
         ))}
